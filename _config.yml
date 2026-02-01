@@ -1,0 +1,9 @@
+title: Save File One — Archive
+description: A playable museum of historically significant games and their lineage.
+theme: jekyll-theme-minimal
+
+baseurl: "/savefileone-archive"
+
+collections:
+  games:
+    output: true
