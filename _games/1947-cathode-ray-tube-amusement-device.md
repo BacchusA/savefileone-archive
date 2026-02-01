@@ -17,10 +17,14 @@ influences:
     year: 1940
     type: "Technical Innovations"
     note: "CRT plotting/scope displays inspired the idea of aiming a beam-dot on a screen."
-  - name: "Photoelectric “Electric Eye” Technology"
-    year: 1931
-    type: "Aesthetic, Thematic, and Narrative Lineage"
-    note: "Helped normalize ‘light + electronics = detection/feedback’ in interactive machines."
+  - name: "Seeburg Ray-O-Lite"
+    year: 1936
+    type: "Mechanic/Genre Influence"
+    note: "It pioneered target-shooting as amusement, a concept the CRT device carried into the electronic realm."
+  - name: "Cathode-Ray Tube Technology"
+    year: 1897–1940s
+    type: "Technical, Thematic, and Cultural Roots"
+    note: "The invention of the CRT and its development for oscilloscopes and television made this device possible."
 
 descendants:
   - name: "Tennis for Two"
@@ -29,12 +33,6 @@ descendants:
   - name: "Pong"
     year: 1972
     note: "Mainstreamed the ‘screen + controls’ loop for the public."
-
-sources:
-  - label: "Wikipedia — Cathode-ray tube amusement device"
-    url: "https://en.wikipedia.org/wiki/Cathode-ray_tube_amusement_device"
-  - label: "Google Patents — US2455992A"
-    url: "https://patents.google.com/patent/US2455992A/en"
 ---
 
 ## Exhibit Placard
@@ -60,3 +58,10 @@ In 1947, this was not a public game—it was a lab prototype with no arcade crow
 
 ## Curator's Note
 The Cathode-Ray Tube Amusement Device reads like a hinge in history: military display logic becomes a game loop, and laboratory circuitry becomes a player’s tool. Its aesthetics, mechanics, and structure are minimal because the technology is minimal—yet the idea is expansive: an electronic screen can host rules, timing, and skill. The legacy isn’t a direct family tree; it’s a recovered blueprint that proves the medium’s roots run deeper than the marketplace ever saw.
+
+## Highlights
+Developer Trajectory: It’s worth noting (perhaps in narration or a sidebar) that Thomas T. Goldsmith Jr. never became a “game developer” in the modern sense. After this invention, he continued in electronics and became a physics professor, not joining the later video game industry. This highlights how the idea of a game designer career didn’t exist yet – Goldsmith’s story shows that the people behind the first games were engineers and scientists experimenting outside their main jobs. It might be a neat “where are they now?” footnote for the audience: the inventor of the first game lived to see video games become a huge industry by the 2000s (Goldsmith lived until 2009, age 99) and gave a few interviews late in life, but he built only this one game device.
+
+Debated Lineage: We can briefly mention the ongoing debate about “what counts as the first video game?” Some historians argue for this device, others point to later projects depending on definitions. It’s an interesting nuance: the CRT device was unknown for so long that for decades people thought 1958’s Tennis for Two or 1962’s Spacewar! was the first. By including this point, we inform viewers that the lineage of video games has been reconstructed over time, and that our series is covering even those forgotten contenders. This could be a quick voiceover segment like: “By the way, you won’t find this game in old record books – it wasn’t until the 21st century that gaming historians acknowledged it, adjusting the family tree of games to put this as generation zero.”
+
+Speculative Influences: Given its obscurity, the CRT device likely didn’t inspire those who came after, but it’s still fun to draw comparisons. We might note, for instance, “If you’ve ever played an artillery-style video game or aimed a slingshot in Angry Birds, the basic concept of arcing a shot to hit a target can trace its heritage back to this 1947 experiment.” While not a direct influence, it shows how certain gameplay ideas emerge repeatedly. Also, the use of screen overlays here prefigured the design of the Magnavox Odyssey – interestingly, in the Odyssey’s 1974 patent legal defense, they brought up Goldsmith’s patent as prior art. Such trivia could be included if time permits, to show that sometimes ideas resurface independently.
