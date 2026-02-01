@@ -27,12 +27,12 @@ influences:
     note: "The invention of the CRT and its development for oscilloscopes and television made this device possible."
 
 descendants:
-  - name: "Tennis for Two"
-    year: 1958
-    note: "Another oscilloscope-based interactive display concept."
-  - name: "Pong"
-    year: 1972
-    note: "Mainstreamed the ‘screen + controls’ loop for the public."
+  - name: 
+    year: 
+    note: 
+  - name: 
+    year: 
+    note: 
 ---
 
 ## Exhibit Placard
