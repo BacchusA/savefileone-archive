@@ -7,9 +7,11 @@ title: Home
 
 Welcome to the Archive: exhibit pages that explain what a game did, why it mattered, and who it influenced.
 
-- [Start Here]({{ site.baseurl }}/start-here/)
-- [Browse the timeline]({{ site.baseurl }}/timeline/)
-- [Browse by platform]({{ site.baseurl }}/platforms/)
+<div class="buttonrow">
+  <a class="btn" href="{{ site.baseurl }}/start-here/">Start Here</a>
+  <a class="btn" href="{{ site.baseurl }}/timeline/">Timeline</a>
+  <a class="btn" href="{{ site.baseurl }}/platforms/">Platforms</a>
+</div>
 
 ---
 
@@ -20,17 +22,15 @@ Welcome to the Archive: exhibit pages that explain what a game did, why it matte
 *(No featured games yet — add `featured: true` to any game file.)*
 {% endif %}
 
-<div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px;">
+<div class="cardgrid">
 {% for g in featured %}
-  <div style="border:1px solid #ddd; border-radius:12px; padding:12px;">
-    <div style="font-weight:800; font-size:18px;">
+  <div class="card">
+    <div class="card-title">
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
     </div>
-    <div style="opacity:0.8; margin-top:4px;">
-      {{ g.year }} • {{ g.platform }}
-    </div>
+    <div class="card-meta">{{ g.year }} • {{ g.platform }}</div>
     {% if g.short_summary %}
-    <div style="margin-top:8px;">{{ g.short_summary }}</div>
+    <div class="card-text">{{ g.short_summary }}</div>
     {% endif %}
   </div>
 {% endfor %}
@@ -42,18 +42,20 @@ Welcome to the Archive: exhibit pages that explain what a game did, why it matte
 
 {% assign sorted = site.games | sort: "year" | reverse %}
 
-<div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px;">
+<div class="cardgrid">
 {% for g in sorted %}
-  <div style="border:1px solid #eee; border-radius:12px; padding:12px;">
-    <div style="font-weight:800; font-size:18px;">
+  <div class="card">
+    <div class="card-title">
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
     </div>
-    <div style="opacity:0.8; margin-top:4px;">
-      {{ g.year }} • {{ g.platform }}
-    </div>
+    <div class="card-meta">{{ g.year }} • {{ g.platform }}</div>
     {% if g.short_summary %}
-    <div style="margin-top:8px;">{{ g.short_summary }}</div>
+    <div class="card-text">{{ g.short_summary }}</div>
     {% endif %}
   </div>
 {% endfor %}
 </div>
+
+<p class="small" style="margin-top:18px;">
+Tip: mark a game as featured by adding <code>featured: true</code> in its front-matter.
+</p>
