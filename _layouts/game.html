@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }} <small>({{ page.year }})</small></h1>
+
+<p>
+  <strong>Platform:</strong> {{ page.platform }}<br>
+  {% if page.developer %}<strong>Developer:</strong> {{ page.developer }}<br>{% endif %}
+  {% if page.publisher %}<strong>Publisher:</strong> {{ page.publisher }}<br>{% endif %}
+</p>
+
+{% if page.short_summary %}
+<p><em>{{ page.short_summary }}</em></p>
+{% endif %}
+
+{% if page.youtube_main_episode and page.youtube_main_episode != "" %}
+<p>▶ <a href="{{ page.youtube_main_episode }}">Main episode</a></p>
+{% endif %}
+
+{% if page.youtube_longplay and page.youtube_longplay != "" %}
+<p>▶ <a href="{{ page.youtube_longplay }}">Longplay</a></p>
+{% endif %}
+
+<hr>
+
+{{ content }}
