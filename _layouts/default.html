@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
+    </title>
+  </head>
+  <body style="max-width: 900px; margin: 0 auto; padding: 20px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5;">
+    <header style="margin-bottom: 18px;">
+      <div style="font-weight: 800; font-size: 20px;">
+        <a href="{{ site.baseurl }}/" style="text-decoration: none; color: inherit;">{{ site.title }}</a>
+      </div>
+
+      <nav style="margin-top: 8px; display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/timeline/">Timeline</a>
+      </nav>
+
+      <hr style="margin-top: 14px;">
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer style="margin-top: 28px; opacity: 0.75; font-size: 14px;">
+      <hr>
+      <div>Built for Save File One.</div>
+    </footer>
+  </body>
+</html>
