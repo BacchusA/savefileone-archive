@@ -8,6 +8,7 @@ layout: default
   <strong>Platform:</strong> {{ page.platform }}<br>
   {% if page.developer %}<strong>Developer:</strong> {{ page.developer }}<br>{% endif %}
   {% if page.publisher %}<strong>Publisher:</strong> {{ page.publisher }}<br>{% endif %}
+  {% if page.guide_type %}<strong>Guide Type:</strong> {{ page.guide_type }}<br>{% endif %}
 </p>
 
 {% if page.short_summary %}
@@ -25,3 +26,40 @@ layout: default
 <hr>
 
 {{ content }}
+
+{% if page.influences %}
+<hr>
+<h2>Influences</h2>
+<ul>
+  {% for i in page.influences %}
+    <li>
+      <strong>{{ i.name }}</strong>{% if i.year %} ({{ i.year }}){% endif %}
+      {% if i.type %} — <em>{{ i.type }}</em>{% endif %}
+      {% if i.note %}<br><span style="opacity:0.85">{{ i.note }}</span>{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if page.descendants %}
+<hr>
+<h2>Descendants</h2>
+<ul>
+  {% for d in page.descendants %}
+    <li>
+      <strong>{{ d.name }}</strong>{% if d.year %} ({{ d.year }}){% endif %}
+      {% if d.note %} — <span style="opacity:0.85">{{ d.note }}</span>{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if page.sources %}
+<hr>
+<h2>Sources</h2>
+<ul>
+  {% for s in page.sources %}
+    <li><a href="{{ s.url }}">{{ s.label }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
