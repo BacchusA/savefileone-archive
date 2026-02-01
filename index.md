@@ -5,6 +5,6 @@ title: Home
 
 # Save File One — Archive
 
-If you’re seeing this page, the Archive is live.
+Welcome to the Archive: exhibit pages that explain what a game did, why it mattered, and who it influenced.
 
-- Next: we’ll add a Timeline and Game pages.
+- [Browse the timeline]({{ site.baseurl }}/timeline/)
