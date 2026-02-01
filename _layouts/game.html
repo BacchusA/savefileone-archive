@@ -4,24 +4,25 @@ layout: default
 
 <h1>{{ page.title }} <small>({{ page.year }})</small></h1>
 
-<p>
-  <strong>Platform:</strong> {{ page.platform }}<br>
-  {% if page.developer %}<strong>Developer:</strong> {{ page.developer }}<br>{% endif %}
-  {% if page.publisher %}<strong>Publisher:</strong> {{ page.publisher }}<br>{% endif %}
-  {% if page.guide_type %}<strong>Guide Type:</strong> {{ page.guide_type }}<br>{% endif %}
-</p>
+<div class="badges">
+  <div class="badge"><strong>Platform:</strong>&nbsp;{{ page.platform }}</div>
+  {% if page.developer %}<div class="badge"><strong>Developer:</strong>&nbsp;{{ page.developer }}</div>{% endif %}
+  {% if page.publisher %}<div class="badge"><strong>Publisher:</strong>&nbsp;{{ page.publisher }}</div>{% endif %}
+  {% if page.guide_type %}<div class="badge"><strong>Guide:</strong>&nbsp;{{ page.guide_type }}</div>{% endif %}
+</div>
 
 {% if page.short_summary %}
-<p><em>{{ page.short_summary }}</em></p>
+<p>{{ page.short_summary }}</p>
 {% endif %}
 
-{% if page.youtube_main_episode and page.youtube_main_episode != "" %}
-<p>▶ <a href="{{ page.youtube_main_episode }}">Main episode</a></p>
-{% endif %}
-
-{% if page.youtube_longplay and page.youtube_longplay != "" %}
-<p>▶ <a href="{{ page.youtube_longplay }}">Longplay</a></p>
-{% endif %}
+<div class="buttonrow">
+  {% if page.youtube_main_episode and page.youtube_main_episode != "" %}
+    <a class="btn" href="{{ page.youtube_main_episode }}">▶ Main episode</a>
+  {% endif %}
+  {% if page.youtube_longplay and page.youtube_longplay != "" %}
+    <a class="btn" href="{{ page.youtube_longplay }}">▶ Longplay</a>
+  {% endif %}
+</div>
 
 <hr>
 
