@@ -29,6 +29,9 @@ descendants:
   - name: "Modern light-gun games"
     year: 1990
     note: "The core ‘aim and shoot with a gun-shaped controller’ lineage persists."
+  - name: "Cathode-Ray Tube Amusement Device"
+    year: 1947
+    note: "The earliest-known interactive electronic game concept: a CRT dot as a ‘projectile’ you aim with knobs."
 
 sources:
   - label: "Arcade Museum — Ray-O-Lite Rifle Game"
