@@ -966,4 +966,34 @@ body{
     auto;
 }
 
+/* ===== Lighter background grid ===== */
+body{
+  background:
+    radial-gradient(900px 520px at 18% 12%, rgba(245,196,81,0.14), transparent 60%),
+    radial-gradient(900px 520px at 82% 14%, rgba(103,232,249,0.12), transparent 60%),
+    radial-gradient(900px 520px at 50% 90%, rgba(167,139,250,0.10), transparent 60%),
+
+    /* major grid (every 4th line) */
+    linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px),
+
+    /* minor grid */
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+
+    #070b12;
+
+  /* major grid spacing / minor grid spacing */
+  background-size:
+    auto, auto, auto,
+    208px 208px, 208px 208px,
+    52px 52px,   52px 52px,
+    auto;
+
+  background-position:
+    center, center, center,
+    0 0, 0 0,
+    0 0, 0 0,
+    center;
+}
 
