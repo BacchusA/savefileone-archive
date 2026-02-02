@@ -40,9 +40,6 @@ permalink: /timeline/
             <div class="tl-game-title">
               <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
             </div>
-            <div class="tl-game-meta">{{ g.platform }}</div>
-            {% if g.short_summary %}
-              <div class="tl-game-text">{{ g.short_summary }}</div>
             {% endif %}
           </div>
 
