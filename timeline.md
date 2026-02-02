@@ -16,7 +16,6 @@ permalink: /timeline/
   {% assign games_year = site.games | where: "year", y %}
 
   <div class="tl-item">
-    <div class="tl-dot"></div>
 
     <details class="tl-year">
       <summary>
