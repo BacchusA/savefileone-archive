@@ -551,4 +551,29 @@ img{
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+/* Subtle glow on focus areas */
+.shell, .card, .tl-year, .plat, .game-hero, .game-body, .game-toc{
+  backdrop-filter: blur(6px);
+}
+
+.card:hover, .tl-year:hover, .plat:hover{
+  border-color: rgba(125,211,252,0.30);
+  box-shadow: 0 0 0 1px rgba(125,211,252,0.12), var(--shadow);
+}
+
+/* UI corners */
+.card, .tl-year, .plat, .game-hero, .game-body, .game-toc{
+  position: relative;
+}
+.card:before, .tl-year:before, .plat:before, .game-hero:before, .game-body:before, .game-toc:before{
+  content:"";
+  position:absolute;
+  inset: 10px 10px auto auto;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(255,255,255,0.22);
+  border-right: 1px solid rgba(255,255,255,0.22);
+  opacity: 0.5;
+  pointer-events: none;
+}
 
