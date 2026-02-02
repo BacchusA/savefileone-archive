@@ -32,6 +32,8 @@ sources:
 ## Exhibit Placard
 Target Skill represents the “before electronics” era where arcades still trained aim, timing, and consistency—just with simpler mechanisms. Even without a video screen, it’s part of the lineage that normalized coin-op shooting play as a repeatable skill test.
 
+![Target Skill cabinet]({{ site.baseurl }}/assets/img/target-skill-20528.jpg)
+
 ## Mechanics Snapshot
 - Controls: aim + trigger
 - Objective: score hits reliably
