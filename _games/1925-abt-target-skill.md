@@ -14,11 +14,11 @@ featured: true
 youtube_main_episode: ""
 youtube_longplay: ""
 
-influences: 
-  -name: "Autarm Automatic Target Pistol"
-   year: 1900
-   type: "Core Design Influence"
-   note: "Free-standing penny arcade game featuring a mounted pistol and distant target; entirely mechanical operation with electrical hit indication; no projectiles used (simulated gunplay)."
+influences:
+  - name: "Autarm Automatic Target Pistol"
+    year: 1900
+    type: "Core Design Influence"
+    note: "Free-standing penny arcade game featuring a mounted pistol and distant target; entirely mechanical operation with electrical hit indication; no projectiles used (simulated gunplay)."
 
 descendants:
   - name: "Seeburg’s Ray-O-Lite Rifle Game"
@@ -28,6 +28,7 @@ descendants:
     year: 1930
     note: "A foundational ancestor of arcade shooting formats."
 ---
+
 
 ## Exhibit Placard
 Target Skill is a coin-operated electromechanical game developed and manufactured by A.B.T. Manufacturing Co. and first released in 1925. It’s a one-player countertop arcade shooter: the player inserts a penny and uses a fixed pistol to shoot five steel balls at a set of targets. Each successful hit drops a flag over the target, with no reward except the satisfaction of hitting all five. Target Skill’s historical importance lies in its role as one of the earliest popular skill-based arcade games, steering coin-op amusements away from gambling devices toward true games. Unencumbered by payout mechanisms or chance, it demonstrated that pure hand-eye coordination challenges could captivate the public and be profitable. Its unique contributions include the introduction of multi-shot play per coin (5 shots for 1¢ was a new idea in 1925), an intuitive hit-feedback system (the dropping flags), and an overall design that proved arcade games could be entertaining purely for the gameplay itself – effectively making it a forerunner of pinball and video arcade games in concept. Target Skill was hugely successful in its time, with tens of thousands sold, and it spawned numerous variants and imitations. It remains a landmark in arcade history for establishing the target shooting genre and popularizing skill-focused coin-ops on a large scale.
