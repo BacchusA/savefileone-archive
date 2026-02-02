@@ -12,6 +12,35 @@ featured: false
 youtube_main_episode: ""
 youtube_longplay: ""
 
+## Exhibit Placard
+
+![Target Skill cabinet]({{ site.baseurl }}/assets/img/target-skill-20528.jpg)
+
+## Historical Significance
+
+
+## Core Design Influences
+
+
+## Technical Innovations
+
+
+## Aesthetic, Thematic, and Narrative Lineage
+
+
+## Genre Codification and Structural Influence
+
+
+## Community, Cultural, and Ecosystem Impact
+
+
+## Curator's Note
+
+
+## Highlights
+
+
+
 influences: []
 
 descendants:
@@ -22,19 +51,5 @@ descendants:
     year: 1930
     note: "A foundational ancestor of arcade shooting formats."
 
-sources:
-  - label: "Arcade Museum — Target Skill"
-    url: "https://www.arcade-museum.com/Arcade/target-skill"
-  - label: "Pinrepair — ABT Target Skill history"
-    url: "https://www.pinrepair.com/arcade/abt.htm"
 ---
 
-## Exhibit Placard
-Target Skill represents the “before electronics” era where arcades still trained aim, timing, and consistency—just with simpler mechanisms. Even without a video screen, it’s part of the lineage that normalized coin-op shooting play as a repeatable skill test.
-
-![Target Skill cabinet]({{ site.baseurl }}/assets/img/target-skill-20528.jpg)
-
-## Mechanics Snapshot
-- Controls: aim + trigger
-- Objective: score hits reliably
-- Skill focus: consistency + rhythm + precision
