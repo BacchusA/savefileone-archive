@@ -859,4 +859,22 @@ body:before{
 .card-title a:hover{
   color: rgba(245,196,81,0.95);
 }
+h2{
+  position: relative;
+  padding: 10px 12px;
+  border-left: 4px solid rgba(245,196,81,0.75);
+  background: rgba(0,0,0,0.35);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+}
+.btn{
+  border-radius: 14px;
+  border: 1px solid rgba(245,196,81,0.28);
+  background: linear-gradient(180deg, rgba(245,196,81,0.22), rgba(0,0,0,0.22));
+  box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+}
+.btn:hover{
+  border-color: rgba(103,232,249,0.30);
+  background: linear-gradient(180deg, rgba(103,232,249,0.16), rgba(0,0,0,0.22));
+}
 
