@@ -3,18 +3,6 @@ layout: default
 title: Home
 ---
 
-# Save File One — Archive
-
-Welcome to the Archive: exhibit pages that explain what a game did, why it mattered, and who it influenced.
-
-<div class="buttonrow">
-  <a class="btn" href="{{ site.baseurl }}/start-here/">Start Here</a>
-  <a class="btn" href="{{ site.baseurl }}/timeline/">Timeline</a>
-  <a class="btn" href="{{ site.baseurl }}/platforms/">Platforms</a>
-</div>
-
----
-
 ## Featured
 
 {% assign featured = site.games | where: "featured", true | sort: "year" %}
@@ -28,7 +16,12 @@ Welcome to the Archive: exhibit pages that explain what a game did, why it matte
     <div class="card-title">
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
     </div>
-    <div class="card-meta">{{ g.year }} • {{ g.platform }}</div>
+    <div class="card-meta">
+      {{ g.year }}
+      {% if g.month %} • {{ g.month }}{% endif %}
+      {% if g.day %} {{ g.day }}{% endif %}
+      {% if g.platform %} • {{ g.platform }}{% endif %}
+    </div>
     {% if g.short_summary %}
     <div class="card-text">{{ g.short_summary }}</div>
     {% endif %}
@@ -48,7 +41,12 @@ Welcome to the Archive: exhibit pages that explain what a game did, why it matte
     <div class="card-title">
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
     </div>
-    <div class="card-meta">{{ g.year }} • {{ g.platform }}</div>
+    <div class="card-meta">
+      {{ g.year }}
+      {% if g.month %} • {{ g.month }}{% endif %}
+      {% if g.day %} {{ g.day }}{% endif %}
+      {% if g.platform %} • {{ g.platform }}{% endif %}
+    </div>
     {% if g.short_summary %}
     <div class="card-text">{{ g.short_summary }}</div>
     {% endif %}
