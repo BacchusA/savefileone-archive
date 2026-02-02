@@ -15,10 +15,7 @@ youtube_main_episode: ""
 youtube_longplay: ""
 
 influences:
-  - name: "Cathode-Ray Tube Amusement Device"
-    year: 1947
-    type: "Technical Innovations"
-    note: "Built on CRT display principles, using a CRT dot as a controllable on-screen projectile."
+  
 ---
 
 ## Exhibit Placard
