@@ -409,4 +409,19 @@ li{ margin: 6px 0; }
 }
 .plat-item a{ text-decoration: none; }
 .plat-item:hover{ background: rgba(255,255,255,0.06); }
+img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.figure{
+  margin: 14px 0;
+}
+.caption{
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--faint);
+}
 
