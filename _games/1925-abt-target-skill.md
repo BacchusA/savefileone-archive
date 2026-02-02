@@ -6,6 +6,7 @@ day:
 platform: "Mechanical / early electro-mechanical countertop shooting game"
 developer: "A.B.T. Manufacturing Co."
 publisher: ""
+updated: 2026-02-02
 short_summary: "A coin-op shooting skill game that helped define the public ‘arcade marksmanship’ loop."
 
 featured: false
