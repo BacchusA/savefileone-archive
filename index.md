@@ -2,7 +2,6 @@
 layout: default
 title: Home
 ---
-
 ## About
 
 <div class="card">
