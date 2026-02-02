@@ -40,7 +40,6 @@ permalink: /timeline/
             <div class="tl-game-title">
               <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
             </div>
-            {% endif %}
           </div>
 
 {% endfor %}
