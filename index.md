@@ -35,7 +35,6 @@ title: Home
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
     </div>
     <div class="card-meta">
-  {% if g.updated %}<span class="chip chip-gold">Updated {{ g.updated }}</span>{% endif %}
   {% if g.platform %}<span class="chip chip-teal">{{ g.platform }}</span>{% endif %}
   <span class="chip">{{ g.year }}{% if g.month %} • {{ g.month }}{% endif %}{% if g.day %} {{ g.day }}{% endif %}</span>
 </div>
