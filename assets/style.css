@@ -877,4 +877,28 @@ h2{
   border-color: rgba(103,232,249,0.30);
   background: linear-gradient(180deg, rgba(103,232,249,0.16), rgba(0,0,0,0.22));
 }
+/* Chips / badges */
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.30);
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.chip-gold{
+  border-color: rgba(245,196,81,0.30);
+  background: rgba(245,196,81,0.10);
+  color: rgba(255,235,200,0.92);
+}
+.chip-teal{
+  border-color: rgba(103,232,249,0.26);
+  background: rgba(103,232,249,0.08);
+  color: rgba(210,252,255,0.92);
+}
 
