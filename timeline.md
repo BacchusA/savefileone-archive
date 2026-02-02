@@ -10,12 +10,14 @@ permalink: /timeline/
 
 <div class="timeline">
 
+{% assign months = "January|February|March|April|May|June|July|August|September|October|November|December" | split: "|" %}
 {% assign years_sorted = site.games | map: "year" | uniq | sort %}
 
 {% for y in years_sorted %}
   {% assign games_year = site.games | where: "year", y %}
 
   <div class="tl-item">
+    <div class="tl-dot"></div>
 
     <details class="tl-year">
       <summary>
@@ -25,27 +27,31 @@ permalink: /timeline/
 
       <div class="tl-panel tl-nested">
 
-        {%- comment -%} Known months 1..12 {%- endcomment -%}
-        {% for m in (1..12) %}
-          {% assign games_month = games_year | where: "month", m %}
+        {%- comment -%} Known months by NAME (January..December) {%- endcomment -%}
+        {% for month_name in months %}
+          {% assign games_month = games_year | where: "month", month_name %}
           {% if games_month.size > 0 %}
 
             <details class="tl-month">
               <summary>
-                <span class="tl-month-label">{{ m | prepend: "0" | slice: -2, 2 }}</span>
+                <span class="tl-month-label">{{ month_name }}</span>
                 <span class="tl-year-count">({{ games_month | size }})</span>
               </summary>
 
               <div class="tl-panel tl-subpanel">
 
-                {%- comment -%} Known days 1..31 {%- endcomment -%}
+                {%- comment -%} Known days 1..31 (accept number or string) {%- endcomment -%}
                 {% for d in (1..31) %}
-                  {% assign games_day = games_month | where: "day", d %}
+                  {% assign d_str = d | append: "" %}
+                  {% assign games_day_num = games_month | where: "day", d %}
+                  {% assign games_day_str = games_month | where: "day", d_str %}
+                  {% assign games_day = games_day_num | concat: games_day_str %}
+
                   {% if games_day.size > 0 %}
 
                     <details class="tl-day">
                       <summary>
-                        <span class="tl-day-label">{{ d | prepend: "0" | slice: -2, 2 }}</span>
+                        <span class="tl-day-label">{{ d }}</span>
                         <span class="tl-year-count">({{ games_day | size }})</span>
                       </summary>
 
@@ -65,7 +71,7 @@ permalink: /timeline/
                 {% endfor %}
 
                 {%- comment -%} Unknown day for this month {%- endcomment -%}
-                {% assign games_day_unknown = games_month | where_exp: "g", "g.day == nil" %}
+                {% assign games_day_unknown = games_month | where_exp: "g", "g.day == nil or g.day == ''" %}
                 {% if games_day_unknown.size > 0 %}
 
                   <details class="tl-day tl-unknown">
@@ -80,8 +86,8 @@ permalink: /timeline/
                         <div class="tl-game">
                           <div class="tl-game-title">
                             <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
+                            </div>
                           </div>
-                        </div>
                       {% endfor %}
                     </div>
                   </details>
@@ -95,7 +101,7 @@ permalink: /timeline/
         {% endfor %}
 
         {%- comment -%} Unknown month bucket {%- endcomment -%}
-        {% assign games_month_unknown = games_year | where_exp: "g", "g.month == nil" %}
+        {% assign games_month_unknown = games_year | where_exp: "g", "g.month == nil or g.month == '' or g.month == 'Unknown' or g.month == 'unknown'" %}
         {% if games_month_unknown.size > 0 %}
 
           <details class="tl-month tl-unknown">
@@ -106,14 +112,17 @@ permalink: /timeline/
 
             <div class="tl-panel tl-subpanel">
 
-              {%- comment -%} If any have a day even without month, group by day; else Unknown day {%- endcomment -%}
+              {%- comment -%} Group by day if present, otherwise Unknown day {%- endcomment -%}
               {% for d in (1..31) %}
-                {% assign games_day = games_month_unknown | where: "day", d %}
+                {% assign d_str = d | append: "" %}
+                {% assign games_day_num = games_month_unknown | where: "day", d %}
+                {% assign games_day_str = games_month_unknown | where: "day", d_str %}
+                {% assign games_day = games_day_num | concat: games_day_str %}
                 {% if games_day.size > 0 %}
 
                   <details class="tl-day">
                     <summary>
-                      <span class="tl-day-label">{{ d | prepend: "0" | slice: -2, 2 }}</span>
+                      <span class="tl-day-label">{{ d }}</span>
                       <span class="tl-year-count">({{ games_day | size }})</span>
                     </summary>
 
@@ -132,7 +141,7 @@ permalink: /timeline/
                 {% endif %}
               {% endfor %}
 
-              {% assign games_day_unknown = games_month_unknown | where_exp: "g", "g.day == nil" %}
+              {% assign games_day_unknown = games_month_unknown | where_exp: "g", "g.day == nil or g.day == ''" %}
               {% if games_day_unknown.size > 0 %}
 
                 <details class="tl-day tl-unknown">
