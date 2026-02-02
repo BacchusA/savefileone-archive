@@ -1,6 +1,8 @@
 ---
 title: "Cathode-Ray Tube Amusement Device"
 year: 1947
+month:
+day:
 platform: "Prototype (analog electronics + CRT/oscilloscope)"
 developer: "Thomas T. Goldsmith Jr. & Estle Ray Mann"
 publisher: ""
