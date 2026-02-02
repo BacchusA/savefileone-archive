@@ -3,6 +3,24 @@ layout: default
 title: Home
 ---
 
+## About
+
+<div class="card">
+  <div class="card-text">
+    <p><strong>Save File One</strong> is a playable museum of video game history.</p>
+
+    <p>Each entry is an exhibit page: what the game did, why it mattered, and how its ideas flowed forward. Some entries are technologies and cultural artifacts—because games didn’t appear out of nowhere; they inherited interfaces, hardware, and habits from earlier machines.</p>
+
+    <p>This archive pairs two viewing modes:</p>
+    <ul>
+      <li><strong>Short episodes</strong> for the exhibit-style overview</li>
+      <li><strong>Longplays</strong> for the full artifact, preserved in motion</li>
+    </ul>
+
+    <p>Use <strong>Timeline</strong> to browse chronologically, <strong>Platforms</strong> to follow hardware lineages, and <strong>Tree</strong> to see influence relationships across the collection.</p>
+  </div>
+</div>
+
 ## Featured
 
 {% assign featured = site.games | where: "featured", true | sort: "year" %}
