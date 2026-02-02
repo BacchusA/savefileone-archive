@@ -31,9 +31,12 @@ title: Home
 
 ---
 
-## Catalog (Newest first)
+## Catalog (Recently Updated)
 
-{% assign sorted = site.games | sort: "year" | reverse %}
+{% assign updated_games = site.games | where_exp: "g", "g.updated != nil" | sort: "updated" | reverse %}
+{% assign non_updated = site.games | where_exp: "g", "g.updated == nil" | sort: "year" | reverse %}
+{% assign sorted = updated_games | concat: non_updated %}
+
 
 <div class="cardgrid">
 {% for g in sorted %}
