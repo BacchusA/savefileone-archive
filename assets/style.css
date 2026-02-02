@@ -981,7 +981,8 @@ body{
     linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
 
-    #070b12;
+    /* BASE COLOR (lighter than before) */
+    #0c1220;
 
   background-size:
     auto, auto, auto,
@@ -994,6 +995,15 @@ body{
     0 0, 0 0,
     center;
 }
+/* Lighter vignette so the page doesn't feel crushed */
+body:before{
+  background: radial-gradient(1200px 700px at 50% 25%, transparent 58%, rgba(0,0,0,0.38) 100%);
+  opacity: 0.80;
+}
+.shell{
+  background: rgba(0,0,0,0.44);
+}
+
 
 /* ===== Card separation ===== */
 .card{
