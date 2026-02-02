@@ -15,7 +15,7 @@ youtube_main_episode: ""
 youtube_longplay: ""
 
 influences: 
-  -name: Autarm Automatic Target Pistol
+  -name: "Autarm Automatic Target Pistol"
    year: 1900
    type: "Core Design Influence"
    note: "Free-standing penny arcade game featuring a mounted pistol and distant target; entirely mechanical operation with electrical hit indication; no projectiles used (simulated gunplay)."
