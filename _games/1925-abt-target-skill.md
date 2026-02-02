@@ -9,7 +9,7 @@ publisher: ""
 updated: 2026-02-02
 short_summary: "A coin-op shooting skill game that helped define the public ‘arcade marksmanship’ loop."
 
-featured: false
+featured: true
 
 youtube_main_episode: ""
 youtube_longplay: ""
