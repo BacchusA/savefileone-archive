@@ -602,4 +602,182 @@ header:before{
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
+/* =========================
+   THEME: Museum-Tech
+   Paste at bottom of assets/style.css
+   ========================= */
+
+:root{
+  /* Museum-tech accent palette */
+  --bg: #070b12;
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+  --faint: rgba(255,255,255,0.56);
+
+  --gold: #f5c451;
+  --gold2: #d7a62a;
+  --teal: #67e8f9;
+
+  --border: rgba(255,255,255,0.14);
+  --border-soft: rgba(255,255,255,0.10);
+
+  --panel-a: rgba(255,255,255,0.06); /* primary content */
+  --panel-b: rgba(0,0,0,0.32);       /* nav/TOC */
+  --panel-c: rgba(0,0,0,0.42);       /* meta blocks */
+
+  --shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+/* Background: darker with subtle museum lighting */
+body{
+  background:
+    radial-gradient(1100px 550px at 15% 10%, rgba(245,196,81,0.10), transparent 60%),
+    radial-gradient(900px 520px at 85% 15%, rgba(103,232,249,0.07), transparent 60%),
+    radial-gradient(900px 500px at 60% 95%, rgba(215,166,42,0.06), transparent 60%),
+    var(--bg);
+}
+
+/* Header becomes a “gallery placard bar” */
+header{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.22));
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+header:before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(245,196,81,0.95), rgba(103,232,249,0.70), rgba(215,166,42,0.85));
+  opacity: 0.85;
+}
+.brand-title{
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.brand-sub{
+  color: rgba(255,255,255,0.62);
+}
+
+/* Nav pills: higher contrast and gold accent on hover */
+.navlink{
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(255,255,255,0.16);
+}
+.navlink:hover{
+  border-color: rgba(245,196,81,0.45);
+  box-shadow: 0 0 0 1px rgba(245,196,81,0.10);
+}
+
+/* Shell and cards: clearer layering */
+.shell{
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.16);
+}
+main{ padding: 22px 18px 28px; }
+
+/* Make headings read more “exhibit” */
+h1{
+  letter-spacing: -0.3px;
+}
+h2{
+  border-left: 3px solid rgba(245,196,81,0.55);
+  padding-left: 10px;
+}
+h3{
+  color: rgba(255,255,255,0.86);
+}
+
+/* Panel tiers you can reuse */
+.panel{
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.panel-a{ background: var(--panel-a); }
+.panel-b{ background: var(--panel-b); border-color: rgba(103,232,249,0.18); }
+.panel-c{ background: var(--panel-c); border-color: rgba(245,196,81,0.18); }
+
+/* Card system: more definition, less blending */
+.card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.card:hover{
+  border-color: rgba(245,196,81,0.32);
+  box-shadow: 0 0 0 1px rgba(245,196,81,0.10), var(--shadow);
+}
+.card-title a{
+  color: rgba(255,255,255,0.94);
+}
+.card-title a:hover{
+  color: var(--gold);
+  text-decoration: none;
+}
+.card-meta{
+  color: rgba(255,255,255,0.62);
+}
+
+/* Buttons: museum plaque buttons */
+.btn{
+  background: linear-gradient(180deg, rgba(245,196,81,0.20), rgba(0,0,0,0.18));
+  border-color: rgba(245,196,81,0.22);
+}
+.btn:hover{
+  background: rgba(245,196,81,0.10);
+}
+
+/* Timeline & dropdowns: make edges distinct */
+.tl-year, .plat{
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.tl-year:hover, .plat:hover{
+  border-color: rgba(103,232,249,0.25);
+}
+.tl-game, .plat-item{
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Game page: tiering for hero / toc / body */
+.game-hero{
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(245,196,81,0.18);
+}
+.game-summary{ color: rgba(255,255,255,0.72); }
+.meta-pill{
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.meta-pill strong{ color: rgba(245,196,81,0.85); }
+
+.game-toc{
+  background: rgba(0,0,0,0.34);
+  border: 1px solid rgba(103,232,249,0.16);
+}
+.toc-links a{
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.toc-links a:hover{
+  border-color: rgba(245,196,81,0.30);
+}
+
+/* Give the main exhibit body a “paper behind glass” feel */
+.game-body{
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* Slightly nicer horizontal rules */
+hr{
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+/* Links: gold on hover for “museum label” */
+a:hover{
+  color: var(--gold);
+}
 
