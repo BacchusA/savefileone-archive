@@ -7,7 +7,7 @@ publisher: ""
 guide_type: "Strategy-guide fit (score/accuracy optimization)"
 short_summary: "A classic light-gun shooting gallery: the gun fires light, the target detects hits."
 
-featured: true
+featured: false
 
 youtube_main_episode: ""
 youtube_longplay: ""
