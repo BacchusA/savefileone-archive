@@ -1,6 +1,8 @@
 ---
 title: "ABT’s Target Skill"
 year: 1925
+month:
+day:
 platform: "Mechanical / early electro-mechanical countertop shooting game"
 developer: "A.B.T. Manufacturing Co."
 publisher: ""
@@ -11,6 +13,17 @@ featured: false
 
 youtube_main_episode: ""
 youtube_longplay: ""
+
+influences: []
+
+descendants:
+  - name: "Seeburg’s Ray-O-Lite Rifle Game"
+    year: 1936
+    note: "Takes the same public shooting loop and adds light-based hit detection."
+  - name: "Arcade shooting galleries (mechanical → EM → electronic)"
+    year: 1930
+    note: "A foundational ancestor of arcade shooting formats."
+---
 
 ## Exhibit Placard
 
@@ -40,16 +53,4 @@ youtube_longplay: ""
 ## Highlights
 
 
-
-influences: []
-
-descendants:
-  - name: "Seeburg’s Ray-O-Lite Rifle Game"
-    year: 1936
-    note: "Takes the same public shooting loop and adds light-based hit detection."
-  - name: "Arcade shooting galleries (mechanical → EM → electronic)"
-    year: 1930
-    note: "A foundational ancestor of arcade shooting formats."
-
----
 
