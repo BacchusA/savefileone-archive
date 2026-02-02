@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&display=swap');
+
+h1, h2, .brand-title, .toc-title{
+  font-family: "Orbitron", ui-sans-serif, system-ui;
+}
+
+
 :root{
   --bg: #0b1020;
   --panel: rgba(255,255,255,0.06);
@@ -10,6 +17,11 @@
   --accent2: #a78bfa;    /* purple */
   --good: #34d399;
   --warn: #fbbf24;
+  --core: #60a5fa;      /* blue */
+  --tech: #a78bfa;      /* purple */
+  --aesthetic: #f472b6; /* pink */
+  --genre: #34d399;     /* green */
+  --culture: #fbbf24;   /* gold */
 
   --radius: 16px;
   --shadow: 0 12px 36px rgba(0,0,0,0.35);
@@ -575,5 +587,19 @@ img{
   border-right: 1px solid rgba(255,255,255,0.22);
   opacity: 0.5;
   pointer-events: none;
+}
+header{
+  position: relative;
+}
+header:before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(125,211,252,0.9), rgba(167,139,250,0.9), rgba(52,211,153,0.8));
+}
+.brand-title{
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
