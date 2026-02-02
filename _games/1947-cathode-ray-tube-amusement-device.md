@@ -6,6 +6,7 @@ day:
 platform: "Prototype (analog electronics + CRT/oscilloscope)"
 developer: "Thomas T. Goldsmith Jr. & Estle Ray Mann"
 publisher: ""
+updated: 2026-02-01
 short_summary: "The earliest-known interactive electronic game concept: a CRT dot as a ‘projectile’ you aim with knobs."
 
 featured: true
