@@ -57,7 +57,7 @@ title: Home
 
 
 <div class="cardgrid">
-{% for g in sorted %}
+{% for g in sorted limit:6 %}
   <div class="card">
     <div class="card-title">
       <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
