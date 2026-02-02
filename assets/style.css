@@ -424,4 +424,121 @@ img{
   font-size: 13px;
   color: var(--faint);
 }
+/* --- Game page layout --- */
+.game { display: grid; gap: 14px; }
+
+.game-hero{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 16px 16px;
+}
+
+.game-h1{
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.6px;
+}
+
+.game-sub{
+  margin-top: 6px;
+  color: var(--faint);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.game-sub .dot{ opacity: 0.6; }
+
+.game-summary{
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.game-meta{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.meta-pill{
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+  border-radius: 999px;
+  padding: 8px 10px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.meta-pill strong{
+  font-size: 12px;
+  color: var(--faint);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+.meta-pill span{
+  font-size: 13px;
+  color: var(--text);
+}
+
+.game-actions{ margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
+
+.game-toc{
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.20);
+  border-radius: var(--radius);
+  padding: 12px 12px;
+}
+
+.toc-title{
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+.toc-links{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+.toc-links a{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 8px 10px;
+  color: var(--text);
+}
+.toc-links a:hover{ background: rgba(255,255,255,0.06); text-decoration: none; }
+
+.game-body{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius);
+  padding: 14px 14px;
+}
+
+/* Make the exhibit headings feel like labeled sections */
+.game-body h2{
+  margin-top: 18px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+.game-body h2:first-of-type{
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.game-block{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius);
+  padding: 14px 14px;
+}
+
+.muted{ color: var(--muted); }
 
