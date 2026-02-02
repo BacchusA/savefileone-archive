@@ -309,3 +309,51 @@ code{
 
 ul, ol{ color: var(--muted); }
 li{ margin: 6px 0; }
+/* --- Nested timeline drawers --- */
+.tl-nested{ display: grid; gap: 10px; }
+
+.tl-month, .tl-day{
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
+.tl-month summary, .tl-day summary{
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.tl-subpanel{
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  display: grid;
+  gap: 10px;
+}
+
+.tl-day-list{
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  display: grid;
+  gap: 8px;
+}
+
+.tl-unknown summary{
+  opacity: 0.88;
+}
+
+.tl-month-label, .tl-day-label{
+  letter-spacing: 0.4px;
+}
+
+.tl-game{
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.18);
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
