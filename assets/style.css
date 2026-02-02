@@ -542,3 +542,13 @@ img{
 
 .muted{ color: var(--muted); }
 
+/* Panel tiers */
+.panel-a{ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); }
+.panel-b{ background: rgba(0,0,0,0.28); border: 1px solid rgba(125,211,252,0.18); }
+.panel-c{ background: rgba(0,0,0,0.38); border: 1px solid rgba(167,139,250,0.16); }
+
+.panel{
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
