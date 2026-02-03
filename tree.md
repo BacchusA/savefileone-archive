@@ -30,7 +30,7 @@ flowchart LR
 
 %% Make nodes clickable
 {% for g in all %}
-  click {{ g.year }}-{{ g.title | slugify }} "{{ site.baseurl }}{{ g.url }}" "Open exhibit page" _self
+ click {{ g.year }}-{{ g.title | slugify }} "{{ site.baseurl }}{{ g.url }}" _self
 {% endfor %}
 
 %% Define edges: Influence -> Game (only if influence name matches a title)
