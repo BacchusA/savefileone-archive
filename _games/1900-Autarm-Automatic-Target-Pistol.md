@@ -15,7 +15,7 @@ youtube_main_episode: ""
 youtube_longplay: ""
 
 influences:
-  - name: "John L. McCullough’s “Automatic Target” Apparatus"
+  - name: "John L. McCullough’s 'Automatic Target' Apparatus"
     year: 1896
     note: "Introduced the electrical contact aiming mechanism for a coin-op gun. Basis for Autarm’s design (McCullough was directly involved in Autarm’s development)."
   - name: "Automatic Target Machine Co. prototypes"
