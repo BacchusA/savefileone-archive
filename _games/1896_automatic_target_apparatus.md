@@ -23,7 +23,7 @@ influences:
     note: 
 
 descendants:
-  - name: Autarm Automatic Target Pistol
+  - name: "Autarm Automatic Target Pistol"
     year: 1900
 ---
 
