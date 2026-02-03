@@ -1079,13 +1079,18 @@ body:before{
 
 .tree-overlay__viewport{
   position: absolute;
-  inset: 56px 12px 12px 12px; /* below topbar */
+  inset: 70px 24px 24px 24px; /* top, right, bottom, left */
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.55);
   overflow: auto;
   cursor: grab;
+
+  /* force big */
+  width: auto;
+  height: auto;
 }
+
 .tree-overlay__viewport.dragging{ cursor: grabbing; }
 
 .tree-overlay__inner{
