@@ -16,7 +16,7 @@ title: Home
     
     <p>Use the <strong>Timeline</strong> to browse chronologically, <strong>Platforms</strong> to follow the hardware thread, and the <strong>Tree</strong> to explore influence relationships across the collection.</p>
 
-    <p>The goal is simple: build a living index of the medium, one artifact at a time—so anyone can trace how we got from blinking lights to modern worlds.</p>
+    <p>The goal is simple: build a living index of the medium, one artifact at a time, so anyone can trace how we got from blinking lights to modern worlds.</p>
   </div>
 </div>
 
