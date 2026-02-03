@@ -23,23 +23,23 @@ If an influence name exactly matches another game’s <code>title</code>, it wil
 flowchart LR
 {% assign all = site.games %}
 
-{% comment %}
-Define nodes
-{% endcomment %}
+%% Define nodes (unique IDs: year + slugified title)
 {% for g in all %}
-  {{ g.title | slugify }}["{{ g.title }} ({{ g.year }})"]
+  {{ g.year }}-{{ g.title | slugify }}["{{ g.title }} ({{ g.year }})"]
 {% endfor %}
 
-{% comment %}
-Define edges: Influence -> Game
-Only link if we can find a matching game title.
-{% endcomment %}
+%% Make nodes clickable
+{% for g in all %}
+  click {{ g.year }}-{{ g.title | slugify }} "{{ site.baseurl }}{{ g.url }}" "Open exhibit page" _self
+{% endfor %}
+
+%% Define edges: Influence -> Game (only if influence name matches a title)
 {% for g in all %}
   {% if g.influences %}
     {% for i in g.influences %}
       {% assign match = all | where: "title", i.name | first %}
       {% if match %}
-        {{ match.title | slugify }} --> {{ g.title | slugify }}
+        {{ match.year }}-{{ match.title | slugify }} --> {{ g.year }}-{{ g.title | slugify }}
       {% endif %}
     {% endfor %}
   {% endif %}
@@ -50,5 +50,5 @@ Only link if we can find a matching game title.
 
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({ startOnLoad: true, theme: "dark" });
+  mermaid.initialize({ startOnLoad: true, theme: "dark", securityLevel: "loose" });
 </script>
