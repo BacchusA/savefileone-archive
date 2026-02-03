@@ -11,75 +11,132 @@ This graph is generated from each game's <code>influences:</code> list.
 If an influence name exactly matches another game’s <code>title</code>, it will link correctly.
 </p>
 
-/* ===== Tree overlay / expanded view ===== */
-.no-scroll{ overflow: hidden; }
+<div class="tree-toolbar">
+  <button id="treeExpandBtn" class="btn" type="button">Expand</button>
+</div>
 
-.tree-toolbar{
-  display:flex;
-  justify-content:flex-end;
-  margin: 12px 0;
-}
+<div id="treeFrame" class="card tree-frame">
+  <div class="card-text">
+    <div id="treeMermaid" class="mermaid">
+flowchart LR
+{% assign all = site.games %}
 
-.btn-ghost{
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.14);
-}
+%% Nodes
+{% for g in all %}
+  {{ g.year }}-{{ g.title | slugify }}["{{ g.title }} ({{ g.year }})"]
+{% endfor %}
 
-.tree-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.70);
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 140ms ease;
-  z-index: 9999;
-}
-.tree-overlay.is-open{
-  opacity: 1;
-  pointer-events: auto;
-}
+%% Clickable nodes (no tooltip text)
+{% for g in all %}
+  click {{ g.year }}-{{ g.title | slugify }} "{{ site.baseurl }}{{ g.url }}" _self
+{% endfor %}
 
-.tree-overlay__topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.14);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.38));
-}
-.tree-overlay__title{
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  color: rgba(255,255,255,0.92);
-}
-.tree-overlay__actions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+%% Edges (only when match exists)
+{% for g in all %}
+  {% if g.influences %}
+    {% for i in g.influences %}
+      {% assign match = all | where: "title", i.name | first %}
+      {% if match %}
+        {{ match.year }}-{{ match.title | slugify }} --> {{ g.year }}-{{ g.title | slugify }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+    </div>
+  </div>
+</div>
 
-.tree-overlay__viewport{
-  position: absolute;
-  inset: 56px 12px 12px 12px; /* below topbar */
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(0,0,0,0.55);
-  overflow: auto;
-  cursor: grab;
-}
-.tree-overlay__viewport.dragging{ cursor: grabbing; }
+<!-- Overlay -->
+<div id="treeOverlay" class="tree-overlay" aria-hidden="true">
+  <div class="tree-overlay__topbar">
+    <div class="tree-overlay__title">Ancestry Tree</div>
+    <div class="tree-overlay__actions">
+      <button id="treeResetBtn" class="btn btn-ghost" type="button">Reset view</button>
+      <button id="treeCloseBtn" class="btn" type="button">Close</button>
+    </div>
+  </div>
 
-.tree-overlay__inner{
-  min-width: 1400px; /* forces horizontal scrolling even for small trees */
-  min-height: 900px;
-  padding: 18px;
-}
+  <div id="treeOverlayViewport" class="tree-overlay__viewport">
+    <div id="treeOverlayInner" class="tree-overlay__inner"></div>
+  </div>
+</div>
 
-/* Make Mermaid svg scale up while keeping crisp lines */
-.tree-overlay__inner svg{
-  width: max-content;
-  height: auto;
-}
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "dark", securityLevel: "loose" });
+
+  const overlay = document.getElementById("treeOverlay");
+  const expandBtn = document.getElementById("treeExpandBtn");
+  const closeBtn  = document.getElementById("treeCloseBtn");
+  const resetBtn  = document.getElementById("treeResetBtn");
+
+  const frameMermaid  = document.getElementById("treeMermaid");
+  const overlayInner  = document.getElementById("treeOverlayInner");
+  const viewport      = document.getElementById("treeOverlayViewport");
+
+  function openOverlay(){
+    // Move the rendered SVG into the overlay for a true “big view”
+    overlayInner.innerHTML = "";
+    overlayInner.appendChild(frameMermaid);
+
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+
+    // Center-ish start
+    requestAnimationFrame(() => {
+      viewport.scrollLeft = Math.max(0, (overlayInner.scrollWidth - viewport.clientWidth) / 2);
+      viewport.scrollTop  = Math.max(0, (overlayInner.scrollHeight - viewport.clientHeight) / 6);
+    });
+  }
+
+  function closeOverlay(){
+    // Put it back in the page card
+    const originalHolder = document.querySelector("#treeFrame .card-text");
+    originalHolder.appendChild(frameMermaid);
+
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
+  }
+
+  function resetView(){
+    viewport.scrollLeft = 0;
+    viewport.scrollTop = 0;
+  }
+
+  expandBtn?.addEventListener("click", openOverlay);
+  closeBtn?.addEventListener("click", closeOverlay);
+  resetBtn?.addEventListener("click", resetView);
+
+  overlay?.addEventListener("click", (e) => {
+    // click the dark backdrop to close
+    if (e.target === overlay) closeOverlay();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) closeOverlay();
+  });
+
+  // Drag-to-pan in overlay
+  let isDown = false, startX = 0, startY = 0, startL = 0, startT = 0;
+  viewport.addEventListener("mousedown", (e) => {
+    isDown = true;
+    viewport.classList.add("dragging");
+    startX = e.clientX; startY = e.clientY;
+    startL = viewport.scrollLeft; startT = viewport.scrollTop;
+  });
+  window.addEventListener("mouseup", () => {
+    isDown = false;
+    viewport.classList.remove("dragging");
+  });
+  window.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    viewport.scrollLeft = startL - dx;
+    viewport.scrollTop  = startT - dy;
+  });
+</script>
+
 
