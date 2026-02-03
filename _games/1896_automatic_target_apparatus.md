@@ -1,5 +1,5 @@
 ---
-title: "John L. McCullough’s “Automatic Target” Apparatus"
+title: "John L. McCullough’s "Automatic Target" Apparatus"
 year: 1896
 month:
 day:
