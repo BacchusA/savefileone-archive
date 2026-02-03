@@ -1051,6 +1051,8 @@ body:before{
   pointer-events: none;
   transition: opacity 140ms ease;
   z-index: 9999;
+  width: 100vw;
+  height: 100vh;
 }
 .tree-overlay.is-open{
   opacity: 1;
@@ -1094,9 +1096,9 @@ body:before{
 .tree-overlay__viewport.dragging{ cursor: grabbing; }
 
 .tree-overlay__inner{
-  min-width: 1400px; /* forces horizontal scrolling even for small trees */
-  min-height: 900px;
-  padding: 18px;
+  min-width: 2400px;
+  min-height: 1400px;
+  padding: 24px;
 }
 
 /* Make Mermaid svg scale up while keeping crisp lines */
