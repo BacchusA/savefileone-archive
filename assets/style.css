@@ -1080,30 +1080,55 @@ body:before{
 }
 
 .tree-overlay__viewport{
-  position: absolute;
-  inset: 70px 24px 24px 24px; /* top, right, bottom, left */
+  position: absolute !important;
+  top: 56px !important;   /* below topbar */
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 12px !important;
+
+  overflow: auto !important;
+  overscroll-behavior: contain;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.55);
-  overflow: auto;
   cursor: grab;
-
-  /* force big */
-  width: auto;
-  height: auto;
 }
-
 .tree-overlay__viewport.dragging{ cursor: grabbing; }
 
 .tree-overlay__inner{
-  min-width: 2400px;
-  min-height: 1400px;
-  padding: 24px;
+  padding: 24px !important;
+  min-width: 2600px !important;  /* gives you horizontal scroll */
+  min-height: 1400px !important; /* gives you vertical scroll */
 }
 
 /* Make Mermaid svg scale up while keeping crisp lines */
 .tree-overlay__inner svg{
-  width: max-content;
-  height: auto;
+  max-width: none !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+}
+
+/* ===== FORCE Tree overlay to fullscreen ===== */
+.tree-overlay.is-open{
+  display: block !important;
+}
+
+.tree-overlay{
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  z-index: 99999 !important;
+}
+.tree-overlay .card,
+.tree-overlay .card-text{
+  max-width: none !important;
+  width: auto !important;
 }
 
