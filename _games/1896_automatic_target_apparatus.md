@@ -15,12 +15,7 @@ youtube_main_episode: ""
 youtube_longplay: ""
 
 influences:
-  - name: 
-    year: 
-    note: 
-  - name: 
-    year: 
-    note: 
+
 
 descendants:
   - name: "Autarm Automatic Target Pistol"
