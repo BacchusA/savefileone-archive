@@ -6,17 +6,17 @@ title: Home
 
 <div class="card">
   <div class="card-text">
-    <p><strong>Save File One</strong> is a museum of video game history—built to document how games evolved, why certain ideas survived, and what each milestone passed down to the next generation.</p>
+    <p><strong>Save File One</strong> is a museum of video game history, built to document how games evolved, why certain ideas survived, and what each milestone passed down to the next generation.</p>
 
     <p>This archive treats every entry like an exhibit. Not just <em>what it is</em>, but <em>what it changed</em>: mechanics, interfaces, hardware constraints, audience expectations, and the design “grammar” that later games inherited.</p>
 
-    <p>If a title mattered historically—because it introduced a mechanic, defined a genre pattern, or proved a technology—it belongs here. Sometimes that means documenting pre-video artifacts and enabling tech (shooting galleries, photoelectric sensors, radar displays), because the medium didn’t start at a blank screen.</p>
+    <p>If a title mattered historically, because it introduced a mechanic, defined a genre pattern, or proved a technology—it belongs here. Sometimes that means documenting pre-video artifacts and enabling tech (shooting galleries, photoelectric sensors, radar displays), because the medium didn’t start at a blank screen.</p>
 
     <p>Each exhibit is paired with a YouTube gameplay video viewing modes that preserve the experience in full—no shortcuts, no summary edits:</p>
     
     <p>Use the <strong>Timeline</strong> to browse chronologically, <strong>Platforms</strong> to follow the hardware thread, and the <strong>Tree</strong> to explore influence relationships across the collection.</p>
 
-    <p>The goal is simple: build a living index of the medium—one artifact at a time—so anyone can trace how we got from blinking lights to modern worlds.</p>
+    <p>The goal is simple: build a living index of the medium, one artifact at a time—so anyone can trace how we got from blinking lights to modern worlds.</p>
   </div>
 </div>
 
