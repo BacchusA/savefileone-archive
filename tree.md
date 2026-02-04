@@ -51,9 +51,16 @@ flowchart LR
   <div class="tree-overlay__topbar">
     <div class="tree-overlay__title">Ancestry Tree</div>
     <div class="tree-overlay__actions">
-      <button id="treeResetBtn" class="btn btn-ghost" type="button">Reset view</button>
-      <button id="treeCloseBtn" class="btn" type="button">Close</button>
-    </div>
+  <div class="tree-zoom">
+    <button id="treeZoomOutBtn" class="btn btn-ghost" type="button" aria-label="Zoom out">−</button>
+    <div id="treeZoomLabel" class="tree-zoom__label">100%</div>
+    <button id="treeZoomInBtn" class="btn btn-ghost" type="button" aria-label="Zoom in">+</button>
+  </div>
+
+  <button id="treeResetBtn" class="btn btn-ghost" type="button">Reset view</button>
+  <button id="treeCloseBtn" class="btn" type="button">Close</button>
+</div>
+
   </div>
 
   <div id="treeOverlayViewport" class="tree-overlay__viewport">
@@ -73,6 +80,11 @@ flowchart LR
   const frameMermaid = document.getElementById("treeMermaid");
   const overlayInner = document.getElementById("treeOverlayInner");
   const viewport     = document.getElementById("treeOverlayViewport");
+
+  const zoomInBtn  = document.getElementById("treeZoomInBtn");
+  const zoomOutBtn = document.getElementById("treeZoomOutBtn");
+  const zoomLabel  = document.getElementById("treeZoomLabel");
+
 
   // ✅ PORTAL: move overlay to <body> so it can't be constrained by layout
   if (overlay && overlay.parentElement !== document.body) {
@@ -103,9 +115,47 @@ flowchart LR
   }
 
   function resetView(){
-    viewport.scrollLeft = 0;
-    viewport.scrollTop  = 0;
-  }
+  viewport.scrollLeft = 0;
+  viewport.scrollTop  = 0;
+  zoom = 1;
+  applyZoom();
+}
+
+  // ===== Zoom (transform on overlayInner) =====
+let zoom = 1;
+const ZOOM_MIN = 0.25;
+const ZOOM_MAX = 2.5;
+const ZOOM_STEP_BTN = 0.1;
+const ZOOM_STEP_WHEEL = 0.08;
+
+function clamp(v, min, max){ return Math.min(max, Math.max(min, v)); }
+
+function applyZoom(){
+  // scale from top-left for predictable scrolling
+  overlayInner.style.transformOrigin = "0 0";
+  overlayInner.style.transform = `scale(${zoom})`;
+
+  if (zoomLabel) zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+}
+
+// Keep the point under the mouse “stable” while zooming
+function zoomAtPoint(newZoom, clientX, clientY){
+  newZoom = clamp(newZoom, ZOOM_MIN, ZOOM_MAX);
+
+  const rect = viewport.getBoundingClientRect();
+  const x = clientX - rect.left + viewport.scrollLeft;
+  const y = clientY - rect.top  + viewport.scrollTop;
+
+  const scale = newZoom / zoom;
+
+  // Adjust scroll so the zoom focuses around the cursor point
+  viewport.scrollLeft = (x * scale) - (clientX - rect.left);
+  viewport.scrollTop  = (y * scale) - (clientY - rect.top);
+
+  zoom = newZoom;
+  applyZoom();
+}
+
 
   expandBtn?.addEventListener("click", openOverlay);
   closeBtn?.addEventListener("click", closeOverlay);
