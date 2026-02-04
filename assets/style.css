@@ -1028,80 +1028,53 @@ body:before{
   box-shadow: 0 30px 90px rgba(0,0,0,0.62);
   backdrop-filter: blur(10px);
 }
-/* ===== Tree overlay / expanded view ===== */
+/* ===== Tree Overlay (fullscreen, not constrained by layout) ===== */
 .no-scroll{ overflow: hidden; }
-
-.tree-toolbar{
-  display:flex;
-  justify-content:flex-end;
-  margin: 12px 0;
-}
-
-.btn-ghost{
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.14);
-}
 
 .tree-overlay{
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.70);
+  z-index: 999999;
+  display: none;                 /* hidden until open */
+  flex-direction: column;
+  background: rgba(0,0,0,0.72);
   backdrop-filter: blur(6px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 140ms ease;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
 }
+
 .tree-overlay.is-open{
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
 }
 
 .tree-overlay__topbar{
+  flex: 0 0 auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid rgba(255,255,255,0.14);
   background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.38));
 }
-.tree-overlay__title{
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  color: rgba(255,255,255,0.92);
-}
-.tree-overlay__actions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
 
 .tree-overlay__viewport{
-  position: absolute !important;
-  top: 56px !important;   /* below topbar */
-  left: 12px !important;
-  right: 12px !important;
-  bottom: 12px !important;
-
-  overflow: auto !important;
-  overscroll-behavior: contain;
+  flex: 1 1 auto;                /* take all remaining height */
+  margin: 12px;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.55);
+  overflow: auto;                /* ✅ scrolling works */
   cursor: grab;
 }
+
 .tree-overlay__viewport.dragging{ cursor: grabbing; }
 
 .tree-overlay__inner{
-  padding: 24px !important;
-  min-width: 2600px !important;  /* gives you horizontal scroll */
-  min-height: 1400px !important; /* gives you vertical scroll */
+  padding: 24px;
+  min-width: 2600px;             /* ✅ horizontal scroll exists */
+  min-height: 1400px;            /* ✅ vertical scroll exists */
 }
 
-/* Make Mermaid svg scale up while keeping crisp lines */
+/* ✅ prevent global svg sizing rules from shrinking Mermaid */
 .tree-overlay__inner svg{
   max-width: none !important;
   width: auto !important;
@@ -1109,26 +1082,4 @@ body:before{
   display: block;
 }
 
-/* ===== FORCE Tree overlay to fullscreen ===== */
-.tree-overlay.is-open{
-  display: block !important;
-}
-
-.tree-overlay{
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  max-width: none !important;
-  max-height: none !important;
-  z-index: 99999 !important;
-}
-.tree-overlay .card,
-.tree-overlay .card-text{
-  max-width: none !important;
-  width: auto !important;
-}
 
