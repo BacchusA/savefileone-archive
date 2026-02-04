@@ -57,6 +57,7 @@ flowchart LR
     <button id="treeZoomInBtn" class="btn btn-ghost" type="button" aria-label="Zoom in">+</button>
   </div>
 
+  <button id="treeFitBtn" class="btn btn-ghost" type="button">Fit</button>
   <button id="treeResetBtn" class="btn btn-ghost" type="button">Reset view</button>
   <button id="treeCloseBtn" class="btn" type="button">Close</button>
 </div>
@@ -76,6 +77,8 @@ flowchart LR
   const expandBtn = document.getElementById("treeExpandBtn");
   const closeBtn  = document.getElementById("treeCloseBtn");
   const resetBtn  = document.getElementById("treeResetBtn");
+  const fitBtn    = document.getElementById("treeFitBtn");
+
 
   const frameMermaid = document.getElementById("treeMermaid");
   const overlayInner = document.getElementById("treeOverlayInner");
@@ -99,6 +102,8 @@ flowchart LR
     overlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
     applyZoom();
+    requestAnimationFrame(() => fitToScreen());
+
 
 
     requestAnimationFrame(() => {
@@ -162,6 +167,8 @@ function zoomAtPoint(newZoom, clientX, clientY){
   expandBtn?.addEventListener("click", openOverlay);
   closeBtn?.addEventListener("click", closeOverlay);
   resetBtn?.addEventListener("click", resetView);
+  fitBtn?.addEventListener("click", fitToScreen);
+
 
   zoomInBtn?.addEventListener("click", () => {
   const r = viewport.getBoundingClientRect();
@@ -212,6 +219,47 @@ zoomOutBtn?.addEventListener("click", () => {
   const next = zoom * (direction > 0 ? (1 - ZOOM_STEP_WHEEL) : (1 + ZOOM_STEP_WHEEL));
   zoomAtPoint(next, e.clientX, e.clientY);
 }, { passive: false });
+  function fitToScreen(){
+  // Find the rendered Mermaid SVG
+  const svg = overlayInner.querySelector("svg");
+  if (!svg) return;
+
+  // Some Mermaid SVGs have padding; bbox gives actual drawn bounds
+  const bbox = svg.getBBox();
+
+  // Visible area inside the scroll viewport
+  const padding = 40; // breathing room around the graph
+  const viewW = viewport.clientWidth - padding;
+  const viewH = viewport.clientHeight - padding;
+
+  if (viewW <= 0 || viewH <= 0) return;
+
+  // Required zoom so bbox fits inside viewport
+  const scaleX = viewW / bbox.width;
+  const scaleY = viewH / bbox.height;
+
+  // Choose the smaller scale so both dimensions fit
+  let newZoom = Math.min(scaleX, scaleY);
+
+  // Clamp to your zoom bounds
+  newZoom = clamp(newZoom, ZOOM_MIN, ZOOM_MAX);
+
+  // Apply zoom
+  zoom = newZoom;
+  applyZoom();
+
+  // After zoom, center the bbox inside the viewport
+  // bbox.x/y are in SVG units; multiplied by zoom gives scaled content size
+  const targetX = (bbox.x * zoom) - (padding / 2);
+  const targetY = (bbox.y * zoom) - (padding / 2);
+
+  const centerX = targetX + (bbox.width * zoom) / 2;
+  const centerY = targetY + (bbox.height * zoom) / 2;
+
+  viewport.scrollLeft = Math.max(0, centerX - viewport.clientWidth / 2);
+  viewport.scrollTop  = Math.max(0, centerY - viewport.clientHeight / 2);
+}
+
 
 </script>
 
