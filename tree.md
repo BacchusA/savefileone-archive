@@ -1,3 +1,9 @@
+---
+layout: default
+title: Ancestry Tree
+permalink: /tree/
+---
+
 const overlay = document.getElementById("treeOverlay");
 const expandBtn = document.getElementById("treeExpandBtn");
 const closeBtn  = document.getElementById("treeCloseBtn");
