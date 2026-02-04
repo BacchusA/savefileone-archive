@@ -102,7 +102,8 @@ flowchart LR
     overlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
     applyZoom();
-    requestAnimationFrame(() => fitToScreen());
+   setTimeout(() => fitToScreen(), 120);
+
 
 
 
