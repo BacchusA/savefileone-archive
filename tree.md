@@ -98,6 +98,8 @@ flowchart LR
     overlay.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
+    applyZoom();
+
 
     requestAnimationFrame(() => {
       viewport.scrollLeft = Math.max(0, (overlayInner.scrollWidth - viewport.clientWidth) / 2);
@@ -161,6 +163,17 @@ function zoomAtPoint(newZoom, clientX, clientY){
   closeBtn?.addEventListener("click", closeOverlay);
   resetBtn?.addEventListener("click", resetView);
 
+  zoomInBtn?.addEventListener("click", () => {
+  const r = viewport.getBoundingClientRect();
+  zoomAtPoint(zoom + ZOOM_STEP_BTN, r.left + r.width/2, r.top + r.height/2);
+});
+
+zoomOutBtn?.addEventListener("click", () => {
+  const r = viewport.getBoundingClientRect();
+  zoomAtPoint(zoom - ZOOM_STEP_BTN, r.left + r.width/2, r.top + r.height/2);
+});
+
+
   overlay?.addEventListener("click", (e) => {
     if (e.target === overlay) closeOverlay();
   });
@@ -188,5 +201,17 @@ function zoomAtPoint(newZoom, clientX, clientY){
     viewport.scrollLeft = startL - dx;
     viewport.scrollTop  = startT - dy;
   });
+
+  viewport.addEventListener("wheel", (e) => {
+  // Require CTRL so normal scrolling still works
+  if (!e.ctrlKey) return;
+
+  e.preventDefault();
+
+  const direction = Math.sign(e.deltaY);
+  const next = zoom * (direction > 0 ? (1 - ZOOM_STEP_WHEEL) : (1 + ZOOM_STEP_WHEEL));
+  zoomAtPoint(next, e.clientX, e.clientY);
+}, { passive: false });
+
 </script>
 
