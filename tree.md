@@ -241,6 +241,8 @@ zoomOutBtn?.addEventListener("click", () => {
 
   // Choose the smaller scale so both dimensions fit
   let newZoom = Math.min(scaleX, scaleY);
+  newZoom = Math.min(newZoom, 1); // never auto-zoom above 100%
+
 
   // Clamp to your zoom bounds
   newZoom = clamp(newZoom, ZOOM_MIN, ZOOM_MAX);
