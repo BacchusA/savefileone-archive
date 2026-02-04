@@ -65,17 +65,21 @@ flowchart LR
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
   mermaid.initialize({ startOnLoad: true, theme: "dark", securityLevel: "loose" });
 
-  const overlay = document.getElementById("treeOverlay");
+  const overlay   = document.getElementById("treeOverlay");
   const expandBtn = document.getElementById("treeExpandBtn");
   const closeBtn  = document.getElementById("treeCloseBtn");
   const resetBtn  = document.getElementById("treeResetBtn");
 
-  const frameMermaid  = document.getElementById("treeMermaid");
-  const overlayInner  = document.getElementById("treeOverlayInner");
-  const viewport      = document.getElementById("treeOverlayViewport");
+  const frameMermaid = document.getElementById("treeMermaid");
+  const overlayInner = document.getElementById("treeOverlayInner");
+  const viewport     = document.getElementById("treeOverlayViewport");
+
+  // ✅ PORTAL: move overlay to <body> so it can't be constrained by layout
+  if (overlay && overlay.parentElement !== document.body) {
+    document.body.appendChild(overlay);
+  }
 
   function openOverlay(){
-    // Move the rendered SVG into the overlay for a true “big view”
     overlayInner.innerHTML = "";
     overlayInner.appendChild(frameMermaid);
 
@@ -83,7 +87,6 @@ flowchart LR
     overlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
 
-    // Center-ish start
     requestAnimationFrame(() => {
       viewport.scrollLeft = Math.max(0, (overlayInner.scrollWidth - viewport.clientWidth) / 2);
       viewport.scrollTop  = Math.max(0, (overlayInner.scrollHeight - viewport.clientHeight) / 6);
@@ -91,24 +94,24 @@ flowchart LR
   }
 
   function closeOverlay(){
-    // Put it back in the page card
     const originalHolder = document.querySelector("#treeFrame .card-text");
     originalHolder.appendChild(frameMermaid);
-overlay.classList.remove("is-open");
+
+    overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
   }
-function resetView(){
+
+  function resetView(){
     viewport.scrollLeft = 0;
-    viewport.scrollTop = 0;
+    viewport.scrollTop  = 0;
   }
 
   expandBtn?.addEventListener("click", openOverlay);
   closeBtn?.addEventListener("click", closeOverlay);
   resetBtn?.addEventListener("click", resetView);
 
-overlay?.addEventListener("click", (e) => {
-    // click the dark backdrop to close
+  overlay?.addEventListener("click", (e) => {
     if (e.target === overlay) closeOverlay();
   });
 
@@ -116,7 +119,7 @@ overlay?.addEventListener("click", (e) => {
     if (e.key === "Escape" && overlay.classList.contains("is-open")) closeOverlay();
   });
 
-  // Drag-to-pan in overlay
+  // Drag-to-pan (optional)
   let isDown = false, startX = 0, startY = 0, startL = 0, startT = 0;
   viewport.addEventListener("mousedown", (e) => {
     isDown = true;
@@ -136,3 +139,4 @@ overlay?.addEventListener("click", (e) => {
     viewport.scrollTop  = startT - dy;
   });
 </script>
+
