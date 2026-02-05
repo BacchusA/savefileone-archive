@@ -17,6 +17,20 @@ title: Home
     <p>Use the <strong>Timeline</strong> to browse chronologically, <strong>Platforms</strong> to follow the hardware thread, and the <strong>Tree</strong> to explore influence relationships across the collection.</p>
 
     <p>The goal is simple: build a living index of the medium, one artifact at a time, so anyone can trace how we got from blinking lights to modern worlds.</p>
+
+    <h2>Confidence Tags</h2>
+
+<div class="card" style="margin-top: 10px;">
+  <div class="card-text">
+    <p>Some exhibit pages include <strong>confidence tags</strong> to show what kind of evidence supports a claim:</p>
+    <ul>
+      <li><strong>[primary-source]</strong> — Patents, manuals, interviews, and other original records from the time.</li>
+      <li><strong>[secondary-source]</strong> — Books, articles, documentaries, and other research that discusses the original material.</li>
+      <li><strong>[inference]</strong> — A logical connection based on available facts, even if no source states it directly.</li>
+    </ul>
+  </div>
+</div>
+
   </div>
 </div>
 
