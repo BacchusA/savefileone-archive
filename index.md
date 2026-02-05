@@ -18,15 +18,6 @@ title: Home
 
     <p>The goal is simple: build a living index of the medium, one artifact at a time, so anyone can trace how we got from blinking lights to modern worlds.</p>
 
-    ## Confidence Tags
-
-<p>Some exhibit pages include **confidence tags** to show what kind of evidence supports a claim:<p>
-
-- **[primary-source]** — Patents, manuals, interviews, and other original records from the time.
-- **[secondary-source]** — Books, articles, documentaries, and other research that discusses the original material.
-- **[inference]** — A logical connection based on available facts, even if no source states it directly.
-
-
   </div>
 </div>
 
