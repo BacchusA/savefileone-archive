@@ -10,6 +10,17 @@ title: Home
 
     <p>This archive treats every entry like an exhibit. Not just <em>what it is</em>, but <em>what it changed</em>: mechanics, interfaces, hardware constraints, audience expectations, and the design “grammar” that later games inherited.</p>
 
+    <hr class="hr-soft" />
+
+    <p><strong>Confidence Tags</strong> appear on some exhibits to show what kind of evidence supports a claim:</p>
+    <ul>
+      <li><strong>[primary-source]</strong> — Patents, manuals, interviews, and other original records from the time.</li>
+      <li><strong>[secondary-source]</strong> — Books, articles, documentaries, and other research discussing the originals.</li>
+      <li><strong>[inference]</strong> — A logical connection based on available facts, even if not stated directly.</li>
+    </ul>
+
+    <hr class="hr-soft" />
+
     <p>If a title mattered historically, because it introduced a mechanic, defined a genre pattern, or proved a technology—it belongs here. Sometimes that means documenting pre-video artifacts and enabling tech (shooting galleries, photoelectric sensors, radar displays), because the medium didn’t start at a blank screen.</p>
 
     <p>Each exhibit is paired with a YouTube gameplay video viewing modes that preserve the experience in full—no shortcuts, no summary edits:</p>
@@ -20,6 +31,7 @@ title: Home
 
   </div>
 </div>
+
 
 
 ## Featured
