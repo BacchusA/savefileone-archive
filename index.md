@@ -18,18 +18,14 @@ title: Home
 
     <p>The goal is simple: build a living index of the medium, one artifact at a time, so anyone can trace how we got from blinking lights to modern worlds.</p>
 
-    <h2>Confidence Tags</h2>
+    ## Confidence Tags
 
-<div class="card" style="margin-top: 10px;">
-  <div class="card-text">
-    <p>Some exhibit pages include <strong>confidence tags</strong> to show what kind of evidence supports a claim:</p>
-    <ul>
-      <li><strong>[primary-source]</strong> — Patents, manuals, interviews, and other original records from the time.</li>
-      <li><strong>[secondary-source]</strong> — Books, articles, documentaries, and other research that discusses the original material.</li>
-      <li><strong>[inference]</strong> — A logical connection based on available facts, even if no source states it directly.</li>
-    </ul>
-  </div>
-</div>
+<p>Some exhibit pages include **confidence tags** to show what kind of evidence supports a claim:<p>
+
+- **[primary-source]** — Patents, manuals, interviews, and other original records from the time.
+- **[secondary-source]** — Books, articles, documentaries, and other research that discusses the original material.
+- **[inference]** — A logical connection based on available facts, even if no source states it directly.
+
 
   </div>
 </div>
