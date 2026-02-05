@@ -28,13 +28,6 @@ influences:
     type: "Technical Innovations"
     note: "The invention of the CRT and its development for oscilloscopes and television made this device possible."
 
-descendants:
-  - name: 
-    year: 
-    note: 
-  - name: 
-    year: 
-    note: 
 ---
 
 ## Exhibit Placard
@@ -43,16 +36,20 @@ Developed by Thomas T. Goldsmith Jr. and Estle Ray Mann at DuMont Laboratories (
 ## Historical Significance
 This device is often cited in scholarly works as a forerunner of video games. It didn’t influence its contemporaries (since it wasn’t public) but was way ahead of its time, prefiguring the basic concept of a video game. We’ll pitch it to the audience as “the first game that nobody knew about”, an ancestor of all gaming that remained in obscurity until historians uncovered it decades later. The episode will underline that, even though it’s not a “video game” by strict definitions (no digital computer), it absolutely is part of gaming history – the first instance of interactive graphics, predating the likes of Tennis for Two and Spacewar! by a decade or more.
 
-## Core Design Influences - Radar thinking turns aiming into a playable skill
-The Cathode-Ray Tube Amusement Device didn’t borrow from “games” so much as from wartime screens. Its central action—steering a glowing dot like an artillery shell—mirrors the mental workflow of radar operators and missile-control systems: adjust, predict, commit, watch the result. It also inherits the arcade promise of mechanical shooting galleries like Seeburg’s Ray-O-Lite: a target, a shot, and the satisfaction of a hit. The leap is translation. Instead of painted targets and light sensors, the challenge moves onto a CRT/oscilloscope display, turning a lab instrument into a player-facing arena.
+## Core Design Influences
+### Radar thinking turns aiming into a playable skill
+The Cathode-Ray Tube Amusement Device didn’t borrow from “games” so much as from wartime screens. Its central action, steering a glowing dot like an artillery shell, mirrors the mental workflow of radar operators and missile-control systems: adjust, predict, commit, watch the result. It also inherits the arcade promise of mechanical shooting galleries like Seeburg’s Ray-O-Lite: a target, a shot, and the satisfaction of a hit. The leap is translation. Instead of painted targets and light sensors, the challenge moves onto a CRT/oscilloscope display, turning a lab instrument into a player-facing arena.
 
 Confidence Tags: [secondary-source] [inference]
 
 ## Technical Innovations
-This prototype turns a cathode-ray tube into a playable display: a moving dot becomes the entire “sprite sheet.” With no digital computer, it simulates ballistics through analog electronics—vacuum tubes, capacitors, oscillators—pushing the electron beam along a parabolic arc to mimic gravity. A timing circuit deliberately defocuses the dot at the end of flight, creating a fuzzy “explosion” like a time fuse. Visuals arrive via transparent screen overlays with painted targets; “collision” is judged by whether the dot overlaps the target at the blast moment, described in the patent as being within target coordinates when triggered. And crucially: Goldsmith and Mann secured an early patent for an electronic game device, detailing circuitry and rules.
+### Analog circuits fake physics on a glowing tube
+This prototype treats electronics as both display and simulator. A cathode-ray tube shows a moving dot, an electronic visual output harnessed for play, not measurement. With no digital computer, analog components shape the “ballistics”: the electron beam bends into a parabolic arc, approximating gravity in circuitry. A timing circuit ends the flight with a deliberate defocus—an explosion effect created by controlled fuzzing rather than sprites. Because the CRT can’t draw targets, transparent overlays provide airplanes, and “collision” is judged by whether the dot overlaps the painted shape at the moment of detonation. The patent’s existence matters too: it formalizes circuitry and rules as a blueprint for electronic games.
+
+Confidence Tags: [primary-source] [secondary-source]
 
 ## Aesthetic, Thematic, and Narrative Lineage
-Its “art direction” is pure 1940s: radar-scope minimalism and anti-aircraft intent. The target imagery—airplanes painted on transparent overlays—frames the implied story: fire an artillery shell, catch the aircraft in your blast. The screen itself carries the aesthetic: a circular CRT face and oscilloscope-style glow born from television-lab hardware culture. There are no characters and no plot, but the tone is unmistakable: scientific demonstration turned amusement, with a military silhouette hovering behind every control knob. The breakdown also places it in a broader post-war imagination—futuristic gadgets becoming leisure devices—where the boundary between instrument and toy starts to blur.
+Its “art direction” is pure 1940s: radar-scope minimalism and anti-aircraft intent. The target imagery, airplanes painted on transparent overlays, frames the implied story: fire an artillery shell, catch the aircraft in your blast. The screen itself carries the aesthetic: a circular CRT face and oscilloscope-style glow born from television-lab hardware culture. There are no characters and no plot, but the tone is unmistakable: scientific demonstration turned amusement, with a military silhouette hovering behind every control knob. The breakdown also places it in a broader post-war imagination—futuristic gadgets becoming leisure devices—where the boundary between instrument and toy starts to blur.
 
 ## Genre Codification and Structural Influence
 Retroactively, historians read this device as a forerunner to “shooter” and “artillery” thinking: adjust trajectory, fire, and let timing decide the outcome. The structure is stark—no levels, no score counter, no progression loop—just the binary drama of hit or miss. Yet it introduces recognizably game-like constraints: the shell must “explode” near the target within a set time, and the player can increase challenge by choosing a less direct path. Its aim-at-airplanes premise has been likened to distant descendants like Space Invaders and Galaxian, not as a direct lineage, but as an early proof that screen action plus player input can create a new kind of skill contest.
