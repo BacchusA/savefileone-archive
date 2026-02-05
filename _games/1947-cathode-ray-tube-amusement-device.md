@@ -17,11 +17,11 @@ youtube_longplay: ""
 influences:
   - name: "World War II Radar Displays"
     year: 1940
-    type: "Technical Innovations"
+    type: "Core Design Influences"
     note: "CRT plotting/scope displays inspired the idea of aiming a beam-dot on a screen."
   - name: "Seeburg’s Ray-O-Lite Rifle Game"
     year: 1936
-    type: "Technical Innovations"
+    type: "Core Design Influences"
     note: "It pioneered target-shooting as amusement, a concept the CRT device carried into the electronic realm."
   - name: "Cathode-Ray Tube Technology"
     year: 1897–1940s
