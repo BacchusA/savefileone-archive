@@ -45,14 +45,7 @@ This device is often cited in scholarly works as a forerunner of video games. It
 
 ## Core Design Influences - Radar thinking turns aiming into a playable skill
 The Cathode-Ray Tube Amusement Device didn’t borrow from “games” so much as from wartime screens. Its central action—steering a glowing dot like an artillery shell—mirrors the mental workflow of radar operators and missile-control systems: adjust, predict, commit, watch the result. It also inherits the arcade promise of mechanical shooting galleries like Seeburg’s Ray-O-Lite: a target, a shot, and the satisfaction of a hit. The leap is translation. Instead of painted targets and light sensors, the challenge moves onto a CRT/oscilloscope display, turning a lab instrument into a player-facing arena.
-Key Artifacts / Proof Points:
 
-WWII radar and missile-control display inspiration
-
-Ray-O-Lite-style target shooting challenge, reimagined
-
-CRT scope becomes the playfield for aiming
-Design DNA: Later games inherit real-time aiming as a skill test.
 Confidence Tags: [secondary-source] [inference]
 
 ## Technical Innovations
