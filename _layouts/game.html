@@ -5,16 +5,16 @@ layout: default
 <article class="game-page">
 
   <header class="game-header">
-    <h1 class="game-title">{{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}</h1>
+    <h1 class="game-title">{{ page.title }}</h1>
 
     <div class="game-meta">
-      {% if page.platform %}<span class="chip chip-cyan">{{ page.platform }}</span>{% endif %}
+      {% if page.year %}<span class="chip chip-gold">{{ page.year }}</span>{% endif %}
       {% if page.month and page.day %}
         <span class="chip chip-gold">{{ page.month }} {{ page.day }}</span>
       {% endif %}
-      {% if page.updated %}
-        <span class="chip chip-muted">Updated: {{ page.updated }}</span>
-      {% endif %}
+      {% if page.platform %}<span class="chip chip-cyan">{{ page.platform }}</span>{% endif %}
+      {% if page.developer %}<span class="chip chip-muted">Dev: {{ page.developer }}</span>{% endif %}
+      {% if page.publisher and page.publisher != "" %}<span class="chip chip-muted">Pub: {{ page.publisher }}</span>{% endif %}
     </div>
 
     {% if page.short_summary %}
@@ -22,58 +22,31 @@ layout: default
     {% endif %}
 
     <div class="game-links">
-      {% if page.youtube_main_episode and page.youtube_main_episode != "" %}
-        <a class="btn" href="{{ page.youtube_main_episode }}" target="_blank" rel="noopener">YouTube Episode</a>
-      {% endif %}
       {% if page.youtube_longplay and page.youtube_longplay != "" %}
-        <a class="btn btn-ghost" href="{{ page.youtube_longplay }}" target="_blank" rel="noopener">Longplay</a>
+        <a class="btn" href="{{ page.youtube_longplay }}" target="_blank" rel="noopener">Watch Longplay</a>
+      {% endif %}
+      {% if page.youtube_main_episode and page.youtube_main_episode != "" %}
+        <a class="btn btn-ghost" href="{{ page.youtube_main_episode }}" target="_blank" rel="noopener">Short Episode</a>
       {% endif %}
     </div>
+  </header>
 
-    {% if page.influences and page.influences.size > 0 %}
-      <div class="influence-mini">
-        <div class="small muted" style="margin-bottom:8px;">Influence Graph</div>
-
-        <div class="card" style="margin-top:10px;">
-          <div class="card-text">
-            <div class="mermaid mini-graph">
-flowchart LR
-  %% Center node (this game)
-  G["{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %}"]
-
-  %% Influence nodes -> center node
-  {% assign all = site.games %}
-  {% assign seen = "" %}
-
-  {% for i in page.influences %}
-    {% assign key = i.name | strip %}
-    {% if seen contains key %}{% continue %}{% endif %}
-    {% assign seen = seen | append: key | append: "|" %}
-
-    {% assign node_id = page.title | slugify | append: "-" | append: i.name | slugify %}
-
-    {{ node_id }}["{{ i.name | escape }}{% if i.year %} ({{ i.year }}){% endif %}"]
-    {{ node_id }} --> G
-
-    {% assign match = all | where: "title", i.name | first %}
-    {% assign tip = i.note %}
-    {% if tip == nil or tip == "" %}
-      {% assign tip = "View exhibit page" %}
-    {% endif %}
-
-    {% if match %}
-      click {{ node_id }} "{{ match.url | relative_url }}" "{{ tip | escape }}"
-    {% else %}
-      click {{ node_id }} "javascript:void(0)" "{{ tip | escape }}"
-    {% endif %}
-  {% endfor %}
-            </div>
-          </div>
+  {% if page.youtube_longplay and page.youtube_longplay != "" %}
+    <div class="card" style="margin-top:14px;">
+      <div class="card-text">
+        <div class="small muted" style="margin-bottom:8px;">Longplay</div>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/{{ page.youtube_longplay | split: 'v=' | last | split: '&' | first }}"
+            title="YouTube longplay"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
-    {% endif %}
-
-  </header>
+    </div>
+  {% endif %}
 
   <div class="game-content">
     {{ content }}
