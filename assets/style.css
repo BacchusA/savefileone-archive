@@ -1125,4 +1125,14 @@ body:before{
   margin: 8px 0;
 }
 
+.mini-graph {
+  overflow: auto;
+}
+
+.mini-graph svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
 
