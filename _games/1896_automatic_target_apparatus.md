@@ -7,7 +7,7 @@ platform: ""
 developer: "John L. McCullough"
 publisher: ""
 updated: 2026-02-06
-short_summary: ""
+short_summary: "An electromechanical shooting game that uses a simulated gun and electric contacts to indicate the player’s aim on a target. Pioneering example of an interactive arcade machine and early precursor to video game shooters."
 
 featured: true
 
