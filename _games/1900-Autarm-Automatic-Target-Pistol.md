@@ -22,9 +22,6 @@ influences:
     year: 1896
     note: "Series of early coin-op target machines and improvements (e.g. “Autarm Electric Rifle” in 1901, “Autarm Electric Pistol” in 1902) leading up to the 1905 refined Autarm model."
 
-descendants:
-  - name: "ABT’s Target Skill"
-    year: 1925
 ---
 
 ## Exhibit Placard
@@ -33,20 +30,35 @@ Step right up and test your aim! The Autarm Automatic Target Pistol brought the 
 ## Historical Significance
 Autarm is one of the earliest interactive “video game” ancestors – a proto-light-gun arcade game that pioneered safe, automated target shooting. It demonstrated novel concepts like using electrical circuits to register an aim and provided a blueprint for later arcade shooting games. Only a handful were ever made, making it extremely rare, but its design influenced decades of coin-op marksmanship games.
 
-## Core Design Influences - A shooting gallery without bullets—or broken glass
+## Core Design Influences
+### A shooting gallery without bullets—or broken glass
 Autarm grows out of a late-1800s boom in public marksmanship culture: carnival shooting galleries, penny arcades, and trade stimulators that turned aim into spectacle. Early coin-op shooters like the Automatic Shooter and Electra Automatic Shooting Machine simply added coins to real projectiles, then wrestled with safety limits—enclosed cabinets, restricted gun travel, and constant maintenance. Autarm’s direct design ancestor is John L. McCullough’s 1896 “target apparatus” patent, described here as the first known electric arcade gun game. That template replaces pellets with electrical contacts: aim a fixed pistol, pull the trigger, and let the machine register hit or miss electronically. Autarm is the safer commercialization of that idea.
 
-## Technical Innovations - A wiper contact “reads” your aim like machinery
+Confidence Tags: [primary-source] [secondary-source]
+
+## Technical Innovations
+###  A wiper contact “reads” your aim like machinery
 Autarm’s magic trick is measurement. The pistol sits on a pedestal with a ball-and-socket joint, letting players aim in azimuth and elevation. Inside, a wiper blade sweeps a circular contact plate, tracking the gun’s angle as a physical electrical position. Pull the trigger and—if alignment matches a scoring zone—the circuit closes, triggering bell rings or indicator flags at the target. No projectile, no gunpowder, no pellets to clear. Advertisements stressed it was “complete in itself” with “no electric connections,” implying internal batteries rather than wall power. Springs, hammer action, linkages, and electromagnets turn a trigger pull into an electrical “shot”—an early simulation mechanism. The same contact-aiming concept is later noted as reappearing in the 1940s “Dale Gun” lineage.
 
-## Aesthetic, Thematic, and Narrative Lineage - Wild West fantasy, dressed as “bull’s-eye” sport
+Confidence Tags: [secondary-source] [inference]
+
+## Aesthetic, Thematic, and Narrative Lineage
+### Wild West fantasy, dressed as “bull’s-eye” sport
 Autarm leans hard into turn-of-the-century gun romance: sharpshooters, soldiers, and dime-novel bravado. The breakdown ties its cultural oxygen to Buffalo Bill's Wild West shows and the era’s appetite for safe vicarious shooting. The machine offers a revolver-style prop and a formal bull’s-eye target, shifting the mood from carnival whimsy toward “practice” and precision—ad copy even moralizes: “EVERY AIM IN LIFE SHOULD BE FOR THE BULL’S EYE.” Visually it’s described as a large floor cabinet with a high-mounted pistol, reportedly painted fire-engine red by modern collectors, designed to grab attention in parlors, saloons, and resorts. No plot, but a clear role: you are the lone crack shot.
 
-## Genre Codification and Structural Influence - Aim, fire, feedback—an arcade loop becomes autonomous
+Confidence Tags: [secondary-source] [inference]
+
+## Genre Codification and Structural Influence
+### Aim, fire, feedback—an arcade loop becomes autonomous
 Autarm helps define a machine-native shooting game: gun interface, target zone, and automated feedback with no attendant required. Earlier galleries needed human callouts or physical gongs struck by pellets. Autarm’s structural shift is electronic hit detection—your aim closes circuits, and the cabinet responds with bells or visible markers. It doesn’t track a running score or necessarily dispense prizes, but it proves a coin-op can host a complete marksmanship contest on its own. The breakdown frames it as a direct ancestor to later electromechanical light-sensing shooters, especially the Ray-O-Lite family, and draws a long arc toward later video light-gun experiences. Even where the tech changes, the skeleton remains: short turns, immediate results, bragging rights.
 
-## Community, Cultural, and Ecosystem Impact  -Rare machine, loud idea: simulation sells
+Confidence Tags: [secondary-source]
+
+## Community, Cultural, and Ecosystem Impact 
+### Rare machine, loud idea: simulation sells
 Autarm wasn’t a mass-market juggernaut in this breakdown—it’s described as produced in very limited numbers, with collector accounts noting only a handful of survivors. But its ecosystem role punches above its footprint. Marketed as a cent-operated attraction for public venues, it sits at the dawn of coin-op interactivity: an electrical firm, Splitdorf Laboratory, building an unusually complex amusement for the Automatic Target Machine Company. The impact is conceptual and contagious: it demonstrates that automated, self-scoring skill play can “fill a public demand” without live targets or attendants, and the breakdown notes competitors quickly advertising similar automatic pistol machines. Its bigger legacy is a design argument: simulation itself can be entertainment—an early stepping stone toward later arcades built around imitation and mastery.
+
+Confidence Tags: [secondary-source] [inference]
 
 ## Curator's Note
 Autarm replaces the messy reality of pellets with the clean logic of circuits: aim becomes a measurable position, and the “shot” becomes an electrical event. That single swap—simulation over impact—connects its influences, its engineering, its Wild West styling, and its long genre afterlife in arcade shooters built on instant feedback and repeatable skill.
