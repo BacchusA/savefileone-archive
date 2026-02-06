@@ -62,30 +62,47 @@ title: Home
 
 ---
 
-## Catalog (Recently Updated)
-
-{% assign updated_games = site.games | where_exp: "g", "g.updated != nil" | sort: "updated" | reverse %}
-{% assign non_updated = site.games | where_exp: "g", "g.updated == nil" | sort: "year" | reverse %}
-{% assign sorted = updated_games | concat: non_updated %}
-
+## Recently Updated
 
 <div class="cardgrid">
-{% for g in sorted limit:6 %}
-  <div class="card">
-    <div class="card-title">
-      <a href="{{ site.baseurl }}{{ g.url }}">{{ g.title }}</a>
+  {% assign games_sorted = site.games | sort: "updated" | reverse %}
+  {% for g in games_sorted limit:6 %}
+    <div class="card">
+      <div class="card-text">
+
+        <div class="card-top">
+          <div class="card-title">
+            <a href="{{ g.url | relative_url }}">{{ g.title }}</a>
+          </div>
+
+          <div class="card-meta">
+            {% if g.year %}<span class="chip chip-gold">{{ g.year }}</span>{% endif %}
+            {% if g.platform %}<span class="chip chip-cyan">{{ g.platform }}</span>{% endif %}
+          </div>
+        </div>
+
+        {% if g.short_summary %}
+          <p class="card-summary">{{ g.short_summary }}</p>
+        {% endif %}
+
+        <div class="card-actions">
+          {% if g.youtube_longplay and g.youtube_longplay != "" %}
+            <a class="btn" href="{{ g.youtube_longplay }}" target="_blank" rel="noopener">Watch Longplay</a>
+          {% else %}
+            <a class="btn btn-ghost" href="{{ g.url | relative_url }}">Open Page</a>
+          {% endif %}
+
+          {% if g.youtube_main_episode and g.youtube_main_episode != "" %}
+            <a class="btn btn-ghost" href="{{ g.youtube_main_episode }}" target="_blank" rel="noopener">Short Episode</a>
+          {% endif %}
+        </div>
+
+      </div>
     </div>
-    <div class="card-meta">
-  {% if g.platform %}<span class="chip chip-teal">{{ g.platform }}</span>{% endif %}
-  <span class="chip chip-gold">{{ g.year }}</span>
-</div>
-    {% if g.short_summary %}
-    <div class="card-text">{{ g.short_summary }}</div>
-    {% endif %}
-  </div>
-{% endfor %}
+  {% endfor %}
 </div>
 
-<p class="small" style="margin-top:18px;">
-Tip: mark a game as featured by adding <code>featured: true</code> in its front-matter.
+<p class="small muted" style="margin-top:10px;">
+  Showing the 6 most recently updated entries.
 </p>
+
