@@ -6,7 +6,7 @@ day:
 platform: ""
 developer: "John L. McCullough"
 publisher: ""
-updated: 2026-02-03
+updated: 2026-02-06
 short_summary: ""
 
 featured: true
