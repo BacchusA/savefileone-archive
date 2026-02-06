@@ -1149,6 +1149,39 @@ body:before{
   width: 100%;
   height: 100%;
 }
+.card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+.card-title a{
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+}
+.card-title a:hover{
+  text-decoration: underline;
+}
+
+.card-meta{
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+}
+
+.card-summary{
+  margin: 10px 0 12px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+}
+
+.card-actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
 
 
