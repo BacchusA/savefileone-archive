@@ -31,50 +31,48 @@ layout: default
     </div>
 
     {% if page.influences and page.influences.size > 0 %}
-  <div class="influence-mini">
-    <div class="small muted" style="margin-bottom:8px;">Influence Graph</div>
+      <div class="influence-mini">
+        <div class="small muted" style="margin-bottom:8px;">Influence Graph</div>
 
-    <div class="card" style="margin-top:10px;">
-      <div class="card-text">
-        <div class="mermaid mini-graph">
+        <div class="card" style="margin-top:10px;">
+          <div class="card-text">
+            <div class="mermaid mini-graph">
 flowchart LR
-  %% center node (this game)
+  %% Center node (this game)
   G["{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %}"]
 
-  %% influence nodes -> center node
+  %% Influence nodes -> center node
   {% assign all = site.games %}
+  {% assign seen = "" %}
+
   {% for i in page.influences %}
-    {% assign node_id = i.name | slugify %}
+    {% assign key = i.name | strip %}
+    {% if seen contains key %}{% continue %}{% endif %}
+    {% assign seen = seen | append: key | append: "|" %}
+
+    {% assign node_id = page.title | slugify | append: "-" | append: i.name | slugify %}
+
     {{ node_id }}["{{ i.name | escape }}{% if i.year %} ({{ i.year }}){% endif %}"]
     {{ node_id }} --> G
-    {% assign all = site.games %}
-{% for i in page.influences %}
-  {% assign node_id = i.name | slugify %}
-  {{ node_id }}["{{ i.name | escape }}{% if i.year %} ({{ i.year }}){% endif %}"]
-  {{ node_id }} --> G
 
-  {% assign match = all | where: "title", i.name | first %}
-  {% assign tip = i.note %}
-  {% if tip == nil or tip == "" %}
-    {% assign tip = "View exhibit page" %}
-  {% endif %}
+    {% assign match = all | where: "title", i.name | first %}
+    {% assign tip = i.note %}
+    {% if tip == nil or tip == "" %}
+      {% assign tip = "View exhibit page" %}
+    {% endif %}
 
-  {% if match %}
-    click {{ node_id }} "{{ match.url | relative_url }}" "{{ tip | escape }}"
-  {% else %}
-    click {{ node_id }} "javascript:void(0)" "{{ tip | escape }}"
-  {% endif %}
-{% endfor %}
-
+    {% if match %}
+      click {{ node_id }} "{{ match.url | relative_url }}" "{{ tip | escape }}"
+    {% else %}
+      click {{ node_id }} "javascript:void(0)" "{{ tip | escape }}"
+    {% endif %}
   {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-{% endif %}
+    {% endif %}
 
-
-    
   </header>
 
   <div class="game-content">
