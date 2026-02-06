@@ -63,21 +63,7 @@ flowchart LR
 {% endif %}
 
 
-    {% if page.influences and page.influences.size > 0 %}
-      <div class="influence-block">
-        <div class="small muted" style="margin-bottom:6px;">Influences</div>
-        <ul class="influence-list">
-          {% for i in page.influences %}
-            <li>
-              <strong>{{ i.name }}</strong>
-              {% if i.year %}<span class="muted">({{ i.year }})</span>{% endif %}
-              {% if i.type %}<span class="chip chip-muted">{{ i.type }}</span>{% endif %}
-              {% if i.note %}<div class="small muted">{{ i.note }}</div>{% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+    
   </header>
 
   <div class="game-content">
