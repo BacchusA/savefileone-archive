@@ -2,108 +2,53 @@
 layout: default
 ---
 
-<article class="game">
+<article class="game-page">
 
-  <!-- HERO / EXHIBIT HEADER -->
-  <section class="game-hero panel panel-c">
-    <div class="game-title">
-      <h1 class="game-h1">{{ page.title }}</h1>
-      <div class="game-sub">
-        {% if page.month and page.day %}
-          <span>{{ page.month }} {{ page.day }}, {{ page.year }}</span>
-        {% elsif page.month %}
-          <span>{{ page.month }} {{ page.year }}</span>
-        {% else %}
-          <span>{{ page.year }}</span>
-        {% endif %}
-        {% if page.platform %}<span class="dot">•</span><span>{{ page.platform }}</span>{% endif %}
-      </div>
+  <header class="game-header">
+    <h1 class="game-title">{{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}</h1>
+
+    <div class="game-meta">
+      {% if page.platform %}<span class="chip chip-cyan">{{ page.platform }}</span>{% endif %}
+      {% if page.month and page.day %}
+        <span class="chip chip-gold">{{ page.month }} {{ page.day }}</span>
+      {% endif %}
+      {% if page.updated %}
+        <span class="chip chip-muted">Updated: {{ page.updated }}</span>
+      {% endif %}
     </div>
 
     {% if page.short_summary %}
       <p class="game-summary">{{ page.short_summary }}</p>
     {% endif %}
 
-    <div class="game-meta">
-      {% if page.developer %}<div class="meta-pill"><strong>Developer</strong><span>{{ page.developer }}</span></div>{% endif %}
-      {% if page.publisher %}<div class="meta-pill"><strong>Publisher</strong><span>{{ page.publisher }}</span></div>{% endif %}
-    </div>
-
-    <div class="game-actions">
+    <div class="game-links">
       {% if page.youtube_main_episode and page.youtube_main_episode != "" %}
-        <a class="btn" href="{{ page.youtube_main_episode }}">▶ Short Episode</a>
+        <a class="btn" href="{{ page.youtube_main_episode }}" target="_blank" rel="noopener">YouTube Episode</a>
       {% endif %}
       {% if page.youtube_longplay and page.youtube_longplay != "" %}
-        <a class="btn" href="{{ page.youtube_longplay }}">▶ Longplay</a>
+        <a class="btn btn-ghost" href="{{ page.youtube_longplay }}" target="_blank" rel="noopener">Longplay</a>
       {% endif %}
     </div>
-  </section>
 
-  <!-- QUICK NAV (matches your standard section headings) -->
-  <section class="game-toc panel panel-b">
-    <div class="toc-title">Exhibit Sections</div>
-    <div class="toc-links">
-      <a href="#exhibit-placard">Exhibit Placard</a>
-      <a href="#historical-significance">Historical Significance</a>
-      <a href="#core-design-influences">Core Design Influences</a>
-      <a href="#technical-innovations">Technical Innovations</a>
-      <a href="#aesthetic-thematic-and-narrative-lineage">Aesthetic, Thematic, and Narrative Lineage</a>
-      <a href="#genre-codification-and-structural-influence">Genre Codification and Structural Influence</a>
-      <a href="#community-cultural-and-ecosystem-impact">Community, Cultural, and Ecosystem Impact</a>
-      <a href="#curators-note">Curator's Note</a>
-      <a href="#highlights">Highlights</a>
-    </div>
-    <div class="small" style="margin-top:10px; opacity:.9;">
-      (These links work when your page uses those exact <code>##</code> headings.)
-    </div>
-  </section>
+    {% if page.influences and page.influences.size > 0 %}
+      <div class="influence-block">
+        <div class="small muted" style="margin-bottom:6px;">Influences</div>
+        <ul class="influence-list">
+          {% for i in page.influences %}
+            <li>
+              <strong>{{ i.name }}</strong>
+              {% if i.year %}<span class="muted">({{ i.year }})</span>{% endif %}
+              {% if i.type %}<span class="chip chip-muted">{{ i.type }}</span>{% endif %}
+              {% if i.note %}<div class="small muted">{{ i.note }}</div>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </header>
 
-  <!-- MAIN CONTENT (your markdown) -->
-  <section class="game-body">
+  <div class="game-content">
     {{ content }}
-  </section>
-
-  <!-- LINEAGE (optional) -->
-  {% if page.influences %}
-  <section class="game-block panel panel-a">
-    <h2>Influences</h2>
-    <ul>
-      {% for i in page.influences %}
-        <li>
-          <strong>{{ i.name }}</strong>{% if i.year %} ({{ i.year }}){% endif %}
-          {% if i.type %} — <em>{{ i.type }}</em>{% endif %}
-          {% if i.note %}<br><span class="muted">{{ i.note }}</span>{% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  {% if page.descendants %}
-  <section class="game-block">
-    <h2>Descendants</h2>
-    <ul>
-      {% for d in page.descendants %}
-        {% if d.name %}
-        <li>
-          <strong>{{ d.name }}</strong>{% if d.year %} ({{ d.year }}){% endif %}
-          {% if d.note %} — <span class="muted">{{ d.note }}</span>{% endif %}
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  {% if page.sources %}
-  <section class="game-block">
-    <h2>Sources</h2>
-    <ul>
-      {% for s in page.sources %}
-        <li><a href="{{ s.url }}">{{ s.label }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+  </div>
 
 </article>
