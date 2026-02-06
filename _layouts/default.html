@@ -38,16 +38,16 @@
         </footer>
       </div>
     </div>
+
+    <!-- Mermaid (must be inside <body>, ideally just before </body>) -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "dark",
+        securityLevel: "loose",
+        flowchart: { htmlLabels: true }
+      });
+    </script>
   </body>
 </html>
-
-<script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: "dark",
-    securityLevel: "loose",
-    flowchart: { htmlLabels: true }
-  });
-</script>
-
