@@ -47,14 +47,25 @@ flowchart LR
     {% assign node_id = i.name | slugify %}
     {{ node_id }}["{{ i.name | escape }}{% if i.year %} ({{ i.year }}){% endif %}"]
     {{ node_id }} --> G
-    {% if i.note and i.note != "" %}
-      click {{ node_id }} "javascript:void(0)" "{{ i.note | escape }}"
-    {% endif %}
+    {% assign all = site.games %}
+{% for i in page.influences %}
+  {% assign node_id = i.name | slugify %}
+  {{ node_id }}["{{ i.name | escape }}{% if i.year %} ({{ i.year }}){% endif %}"]
+  {{ node_id }} --> G
 
-    {% assign match = all | where: "title", i.name | first %}
-    {% if match %}
-      click {{ node_id }} "{{ match.url | relative_url }}" "Open exhibit page"
-    {% endif %}
+  {% assign match = all | where: "title", i.name | first %}
+  {% assign tip = i.note %}
+  {% if tip == nil or tip == "" %}
+    {% assign tip = "View exhibit page" %}
+  {% endif %}
+
+  {% if match %}
+    click {{ node_id }} "{{ match.url | relative_url }}" "{{ tip | escape }}"
+  {% else %}
+    click {{ node_id }} "javascript:void(0)" "{{ tip | escape }}"
+  {% endif %}
+{% endfor %}
+
   {% endfor %}
         </div>
       </div>
