@@ -15,6 +15,21 @@ youtube_main_episode: ""
 youtube_longplay: ""
 
 influences:
+  - name: "Henry Davidson’s 'Chimney Sweep'"
+    year: 1871
+    note: ""
+  - name: "William T. Smith’s 'Locomotive'"
+    year: 1885
+    note: ""
+  - name: "William Reynolds’s 'Automatic Shooter'"
+    year: 1887
+    note: ""
+  - name: "David Johnston’s Automatic Shooter / Electra Shooting Machine"
+    year: 1889
+    note: ""
+  - name: "Coyle & Rogers 'Shooting Gallery'"
+    year: 1889
+    note: ""
 
 ---
 
