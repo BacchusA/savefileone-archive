@@ -6,6 +6,10 @@
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
   </head>
+<!-- build stamp -->
+<div class="small muted" style="padding:14px 0; opacity:.6;">
+  Build: {{ site.time | date: "%Y-%m-%d %H:%M:%S %z" }}
+</div>
 
   <body>
     <div class="container">
