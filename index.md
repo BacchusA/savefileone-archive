@@ -34,10 +34,13 @@ Save File One is a growing catalog of games I’ve played. Every page is a simpl
     </div>
 
     {% if g.platform %}
-      <div class="card-meta">
-        <span class="chip chip-cyan">{{ g.platform }}</span>
-      </div>
-    {% endif %}
+  <div class="card-meta">
+    <span class="platform-line">
+      {{ g.platform | join: ", " }}
+    </span>
+  </div>
+{% endif %}
+
 
     {% if g.short_summary %}
       <p class="card-summary">{{ g.short_summary }}</p>
