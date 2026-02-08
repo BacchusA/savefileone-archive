@@ -4,7 +4,7 @@ title: "Cathode-Ray Tube Amusement Device"
 year: 1947
 month: January
 day: 25
-platform: "Custom CRT-based amusement device concept; cabinet-mounted presentation described in patent"
+platform: "CRT-based amusement device concept"
 developer: "Thomas T. Goldsmith Jr. & Estle Ray Mann"
 publisher: "None documented"
 genre: "Electronic “shooting or hurling” game with a simulated projectile image on a screen (patent classification)" 
