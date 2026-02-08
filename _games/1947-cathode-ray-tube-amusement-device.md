@@ -1,4 +1,6 @@
 ---
+layout: game
+---
 title: "Cathode-Ray Tube Amusement Device"
 year: 1947
 month: January
