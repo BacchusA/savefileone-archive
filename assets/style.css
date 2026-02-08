@@ -1212,6 +1212,44 @@ body:before{
   padding: 8px 10px;
   font-size: 0.9rem;
 }
+/* ===== Recently Updated card spacing ===== */
+.card.card-recent{
+  padding: 14px 14px 14px;
+}
+
+.card-recent .card-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Keep long titles from shoving everything */
+.card-recent .card-title a{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;   /* 2-line title */
+  overflow: hidden;
+}
+
+/* Platform on its own line, not fighting the title */
+.card-recent .card-meta{
+  margin: 8px 0 0;
+  display: block;
+}
+
+/* Prevent the platform chip from turning into a giant bubble */
+.card-recent .chip-cyan{
+  max-width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-recent .card-actions{
+  margin-top: 10px;
+}
 
 
 
