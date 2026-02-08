@@ -906,6 +906,18 @@ h2{
   background: rgba(255,255,255,0.04);
   color: rgba(255,255,255,0.62);
 }
+/* Alias chips used by templates */
+.chip-cyan{ 
+  border-color: rgba(103,232,249,0.26);
+  background: rgba(103,232,249,0.08);
+  color: rgba(210,252,255,0.92);
+}
+.chip-muted{
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.72);
+}
+
 /* ===== Contrast Pass ===== */
 
 /* Brighter card surfaces */
