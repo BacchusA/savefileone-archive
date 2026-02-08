@@ -2,51 +2,55 @@
 layout: default
 ---
 
-<article class="game-page">
+<article class="game">
 
-  <header class="game-header">
-    <h1 class="game-title">{{ page.title }}</h1>
+  <section class="game-hero panel panel-c">
+    <h1 class="game-h1">{{ page.title }}</h1>
 
-    <div class="game-meta">
-      {% if page.year %}<span class="chip chip-gold">{{ page.year }}</span>{% endif %}
-      {% if page.month and page.day %}
-        <span class="chip chip-gold">{{ page.month }} {{ page.day }}</span>
-      {% endif %}
-      {% if page.platform %}<span class="chip chip-cyan">{{ page.platform }}</span>{% endif %}
-      {% if page.developer %}<span class="chip chip-muted">Dev: {{ page.developer }}</span>{% endif %}
-      {% if page.publisher and page.publisher != "" %}<span class="chip chip-muted">Pub: {{ page.publisher }}</span>{% endif %}
+    <div class="game-sub">
+      {% if page.year %}<span>{{ page.year }}</span>{% endif %}
+      {% if page.platform %}<span class="dot">•</span><span>{{ page.platform }}</span>{% endif %}
     </div>
 
     {% if page.short_summary %}
       <p class="game-summary">{{ page.short_summary }}</p>
     {% endif %}
 
-    <div class="game-links">
+    <div class="game-meta">
+      {% if page.release_date %}<div class="meta-pill"><strong>Release</strong><span>{{ page.release_date }}</span></div>{% endif %}
+      {% if page.developer %}<div class="meta-pill"><strong>Developer</strong><span>{{ page.developer }}</span></div>{% endif %}
+      {% if page.publisher and page.publisher != "" %}<div class="meta-pill"><strong>Publisher</strong><span>{{ page.publisher }}</span></div>{% endif %}
+    </div>
+
+    <div class="game-actions">
       {% if page.youtube_longplay and page.youtube_longplay != "" %}
         <a class="btn" href="{{ page.youtube_longplay }}" target="_blank" rel="noopener">Watch Longplay</a>
       {% endif %}
     </div>
-  </header>
+  </section>
 
   {% if page.youtube_longplay and page.youtube_longplay != "" %}
-    <div class="card" style="margin-top:14px;">
-      <div class="card-text">
-        <div class="small muted" style="margin-bottom:8px;">Longplay</div>
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/{{ page.youtube_longplay | split: 'v=' | last | split: '&' | first }}"
-            title="YouTube longplay"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
+    <section class="game-block panel panel-b">
+      <div class="small muted" style="margin-bottom:8px;">Longplay</div>
+      <div class="video-embed">
+        {% assign yid = page.youtube_id %}
+        {% if yid == nil or yid == "" %}
+          {% assign yid = page.youtube_longplay | split: 'v=' | last | split: '&' | first %}
+        {% endif %}
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/{{ yid }}"
+          title="YouTube longplay"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
-    </div>
+    </section>
   {% endif %}
 
-  <div class="game-content">
+  <section class="game-body panel panel-a">
     {{ content }}
-  </div>
+  </section>
 
 </article>
+
