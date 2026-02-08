@@ -1194,6 +1194,24 @@ body:before{
   gap: 10px;
   flex-wrap: wrap;
 }
+/* Timeline: make each game entry feel like a catalog item */
+.tl-game{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.tl-game-title{ grid-column: 1 / 2; }
+.tl-game-meta{ grid-column: 1 / 2; }
+.tl-game-actions{ grid-column: 2 / 3; grid-row: 1 / span 2; }
+
+.btn-small{
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
 
 
 
