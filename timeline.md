@@ -29,26 +29,23 @@ Browse by release date when known. If month/day are missing (or no release_date)
 
         {%- comment -%}
         KNOWN MONTHS:
-        - Prefer explicit month field if you still use it.
+        - Prefer explicit month field if present.
         - Otherwise derive month from release_date if present.
         {%- endcomment -%}
 
         {% for month_name in months %}
-          {% assign games_month_explicit = games_year | where: "month", month_name %}
 
-          {% assign games_month_from_date = games_year | where_exp: "g",
-            "g.release_date != nil and (g.release_date | date: '%B') == month_name" %}
+          {% assign games_month = "" | split: "" %}
 
-          {%- comment -%}
-          Merge the two lists without duplicates:
-          We'll start with explicit, then append date-derived that aren't already in explicit.
-          {%- endcomment -%}
+          {% for g in games_year %}
+            {% assign derived_month = "" %}
+            {% if g.release_date %}
+              {% assign derived_month = g.release_date | date: "%B" %}
+            {% endif %}
 
-          {% assign games_month = games_month_explicit %}
-          {% for g2 in games_month_from_date %}
-            {% unless games_month_explicit contains g2 %}
-              {% assign games_month = games_month | push: g2 %}
-            {% endunless %}
+            {% if g.month == month_name or derived_month == month_name %}
+              {% assign games_month = games_month | push: g %}
+            {% endif %}
           {% endfor %}
 
           {% if games_month.size > 0 %}
@@ -60,19 +57,20 @@ Browse by release date when known. If month/day are missing (or no release_date)
 
             <div class="tl-panel tl-subpanel">
 
-              {%- comment -%} KNOWN DAYS (1..31), explicit day OR derived from release_date {%- endcomment -%}
+              {%- comment -%} KNOWN DAYS (1..31), explicit day OR derived day {%- endcomment -%}
               {% for d in (1..31) %}
 
-                {% assign games_day_explicit = games_month | where: "day", d %}
+                {% assign games_day = "" | split: "" %}
 
-                {% assign games_day_from_date = games_month | where_exp: "g",
-                  "g.release_date != nil and (g.release_date | date: '%-d') == d" %}
+                {% for g in games_month %}
+                  {% assign derived_day = "" %}
+                  {% if g.release_date %}
+                    {% assign derived_day = g.release_date | date: "%-d" %}
+                  {% endif %}
 
-                {% assign games_day = games_day_explicit %}
-                {% for g3 in games_day_from_date %}
-                  {% unless games_day_explicit contains g3 %}
-                    {% assign games_day = games_day | push: g3 %}
-                  {% endunless %}
+                  {% if g.day == d or derived_day == d %}
+                    {% assign games_day = games_day | push: g %}
+                  {% endif %}
                 {% endfor %}
 
                 {% if games_day.size > 0 %}
@@ -110,18 +108,13 @@ Browse by release date when known. If month/day are missing (or no release_date)
 
               {% endfor %}
 
-              {%- comment -%}
-              UNKNOWN DAY inside a KNOWN MONTH:
-              Explicit month exists OR release_date month matches, but day is missing.
-              {%- endcomment -%}
-
-              {% assign games_day_unknown = games_month | where_exp: "g",
-                "g.day == nil and (g.release_date == nil or (g.release_date | date: '%-d') == '')" %}
-
-              {%- comment -%}
-              The check above is intentionally gentle; Liquid date formatting on nil won't run anyway.
-              If release_date exists, day will always exist, so it won't end up here.
-              {%- endcomment -%}
+              {%- comment -%} Unknown day inside a known month (month known, but no day and no release_date) {%- endcomment -%}
+              {% assign games_day_unknown = "" | split: "" %}
+              {% for g in games_month %}
+                {% if g.day == nil and g.release_date == nil %}
+                  {% assign games_day_unknown = games_day_unknown | push: g %}
+                {% endif %}
+              {% endfor %}
 
               {% if games_day_unknown.size > 0 %}
               <details class="tl-day tl-unknown">
@@ -158,6 +151,7 @@ Browse by release date when known. If month/day are missing (or no release_date)
             </div>
           </details>
           {% endif %}
+
         {% endfor %}
 
         {%- comment -%}
@@ -166,7 +160,13 @@ Browse by release date when known. If month/day are missing (or no release_date)
         - AND no release_date
         {%- endcomment -%}
 
-        {% assign games_month_unknown = games_year | where_exp: "g", "g.month == nil and g.release_date == nil" %}
+        {% assign games_month_unknown = "" | split: "" %}
+        {% for g in games_year %}
+          {% if g.month == nil and g.release_date == nil %}
+            {% assign games_month_unknown = games_month_unknown | push: g %}
+          {% endif %}
+        {% endfor %}
+
         {% if games_month_unknown.size > 0 %}
 
         <details class="tl-month tl-unknown">
@@ -179,9 +179,15 @@ Browse by release date when known. If month/day are missing (or no release_date)
 
             {%- comment -%} Group by explicit day if present (rare, but supported) {%- endcomment -%}
             {% for d in (1..31) %}
-              {% assign games_day = games_month_unknown | where: "day", d %}
-              {% if games_day.size > 0 %}
 
+              {% assign games_day = "" | split: "" %}
+              {% for g in games_month_unknown %}
+                {% if g.day == d %}
+                  {% assign games_day = games_day | push: g %}
+                {% endif %}
+              {% endfor %}
+
+              {% if games_day.size > 0 %}
               <details class="tl-day">
                 <summary>
                   <span class="tl-day-label">{{ d }}</span>
@@ -211,14 +217,19 @@ Browse by release date when known. If month/day are missing (or no release_date)
                   {% endfor %}
                 </div>
               </details>
-
               {% endif %}
+
             {% endfor %}
 
             {%- comment -%} Unknown day inside unknown month {%- endcomment -%}
-            {% assign games_day_unknown2 = games_month_unknown | where_exp: "g", "g.day == nil" %}
-            {% if games_day_unknown2.size > 0 %}
+            {% assign games_day_unknown2 = "" | split: "" %}
+            {% for g in games_month_unknown %}
+              {% if g.day == nil %}
+                {% assign games_day_unknown2 = games_day_unknown2 | push: g %}
+              {% endif %}
+            {% endfor %}
 
+            {% if games_day_unknown2.size > 0 %}
             <details class="tl-day tl-unknown">
               <summary>
                 <span class="tl-day-label">Unknown day</span>
@@ -248,7 +259,6 @@ Browse by release date when known. If month/day are missing (or no release_date)
                 {% endfor %}
               </div>
             </details>
-
             {% endif %}
 
           </div>
