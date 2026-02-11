@@ -7,18 +7,32 @@ day:
 platform: ""
 developer: ""
 publisher: ""
-updated:
-short_summary: ""
+genre: "" 
+updated: 2026-02-08
 
-youtube_longplay: ""   # paste full YouTube URL here
+youtube_longplay: ""
 
-featured: false
 ---
 
-## What it is
-(Treat it like a mini wiki entry.)
+## The Game
 
-## How it plays
-(Describe the core loop)
+ 
+## Gameplay
 
-## Longplay
+
+## Modes and Features
+
+
+## Level / Progression Structure
+
+
+## How to win
+
+
+## Development and Historical Context
+
+
+## Legacy and Influence
+ 
+
+
