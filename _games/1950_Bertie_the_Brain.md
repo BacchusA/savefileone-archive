@@ -8,7 +8,7 @@ platform: ""
 developer: ""
 publisher: ""
 genre: "" 
-updated: 2026-02-08
+updated: 2026-02-11
 
 youtube_longplay: ""
 
